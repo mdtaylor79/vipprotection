@@ -3,15 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about VIPS Personal Protection LLC - a veteran-owned executive protection firm serving high-profile individuals and corporate leaders with discreet, intelligence-driven security services.">
+    <meta name="description" content="About VIPS Personal Protection LLC - Veteran-owned executive protection firm with law enforcement expertise. Learn our mission, values, and team.">
     <title>About Us | VIPS Personal Protection LLC</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary-dark: #0a0e27;
             --secondary-dark: #151829;
@@ -22,22 +17,14 @@
             --text-muted: #b0b0b0;
             --border-subtle: #2a2e4a;
         }
-
-        @keyframes shimmer {
-            0% { background-position: -1000px 0; }
-            100% { background-position: 1000px 0; }
-        }
-
         html { scroll-behavior: smooth; }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
             color: var(--text-light);
             line-height: 1.6;
+            overflow-x: hidden;
         }
-
-        /* HEADER */
         header {
             background: rgba(10, 14, 39, 0.98);
             backdrop-filter: blur(10px);
@@ -48,7 +35,6 @@
             padding: 1rem 0;
             box-shadow: 0 0 30px rgba(212, 165, 116, 0.1);
         }
-
         header::before {
             content: '';
             position: absolute;
@@ -59,18 +45,6 @@
             background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
             box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
         }
-
-        header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
-            box-shadow: 0 0 10px rgba(212, 165, 116, 0.5);
-        }
-
         .header-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -78,8 +52,22 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 2rem;
         }
-
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .logo-section:hover { transform: translateY(-2px); }
+        .logo-img {
+            height: 60px;
+            width: auto;
+            filter: drop-shadow(0 0 10px rgba(212, 165, 116, 0.4));
+        }
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
@@ -90,54 +78,162 @@
             -webkit-text-fill-color: transparent;
             filter: drop-shadow(0 0 8px rgba(212, 165, 116, 0.6));
         }
-
-        .logo span {
-            color: var(--accent-red);
-            filter: drop-shadow(0 0 5px rgba(196, 30, 58, 0.4));
-        }
-
+        .logo span { color: var(--accent-red); }
         nav {
             display: flex;
             gap: 2.5rem;
             align-items: center;
+            flex-wrap: wrap;
         }
-
-        nav a {
+        nav > a {
             color: var(--text-light);
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 500;
             transition: all 0.3s ease;
+        }
+        nav > a:hover { color: var(--accent-gold); }
+        .nav-item {
             position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-
-        nav a:hover {
+        .nav-item > a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .nav-item > a:hover { color: var(--accent-gold); }
+        .submenu-toggle {
             color: var(--accent-gold);
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
         }
-
-        /* PAGE HEADER */
+        .nav-item:hover .submenu-toggle { transform: rotate(180deg); }
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(10, 14, 39, 0.98);
+            border: 1px solid var(--border-subtle);
+            border-top: 2px solid var(--accent-gold);
+            border-radius: 2px;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            margin-top: 1rem;
+        }
+        .nav-item:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .submenu a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+            font-size: 0.9rem;
+        }
+        .submenu a:hover {
+            background: rgba(212, 165, 116, 0.1);
+            color: var(--accent-gold);
+            border-left-color: var(--accent-gold);
+            padding-left: 1.8rem;
+        }
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(196, 30, 58, 0.3);
+        }
+        .cta-button:hover {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
+        }
         .page-header {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
             padding: 4rem 2rem;
-            text-align: center;
             border-bottom: 2px solid;
             border-image: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent) 1;
-            background: rgba(20, 24, 41, 0.5);
-            position: relative;
         }
-
         .page-header::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
-            box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(196, 30, 58, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(212, 165, 116, 0.1) 0%, transparent 50%);
+            pointer-events: none;
         }
-
+        .page-header-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
         .page-header h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        .page-header h1 .highlight { color: var(--accent-gold); }
+        .page-header .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+            line-height: 1.8;
+        }
+        .breadcrumb {
+            padding: 1rem 2rem;
+            background: rgba(20, 24, 41, 0.5);
+            text-align: center;
+            border-bottom: 1px solid var(--border-subtle);
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .breadcrumb a:hover { color: var(--accent-red); }
+        .content-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
             margin-bottom: 1rem;
             font-weight: 700;
             background: linear-gradient(135deg, var(--accent-gold), var(--text-light));
@@ -145,260 +241,48 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        .page-header p {
-            font-size: 1.2rem;
+        .section-title p {
             color: var(--text-muted);
-            max-width: 700px;
+            font-size: 1.1rem;
+            max-width: 600px;
             margin: 0 auto;
         }
-
-        /* CONTENT SECTIONS */
-        .content-section {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .content-section:last-of-type {
-            border-bottom: none;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .section-number {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
-            font-size: 2rem;
-            font-weight: 700;
-            color: white;
-            border-radius: 4px;
-            box-shadow: 0 0 20px rgba(196, 30, 58, 0.3);
-        }
-
-        .section-header h2 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .section-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .content-text h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--text-light);
-        }
-
-        .content-text p {
-            margin-bottom: 1rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-        }
-
-        .content-highlight {
-            background: rgba(21, 24, 41, 0.8);
-            border: 1px solid var(--border-subtle);
-            border-left: 4px solid var(--accent-gold);
-            padding: 2.5rem;
-            border-radius: 2px;
-            box-shadow: inset 0 0 20px rgba(212, 165, 116, 0.08), 0 0 25px rgba(212, 165, 116, 0.15);
-        }
-
-        .highlight-item {
-            margin-bottom: 1.5rem;
-        }
-
-        .highlight-item strong {
-            color: var(--accent-gold);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .highlight-item p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* VALUES GRID */
-        .values-grid {
+        .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
-
-        .value-card {
-            background: rgba(21, 24, 41, 0.6);
-            border: 1px solid rgba(212, 165, 116, 0.2);
-            padding: 2rem;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .value-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .value-card:hover {
-            background: rgba(21, 24, 41, 0.9);
-            border-color: var(--accent-gold);
-            box-shadow: 0 0 25px rgba(212, 165, 116, 0.2), inset 0 0 15px rgba(212, 165, 116, 0.05);
-        }
-
-        .value-card:hover::before {
-            opacity: 1;
-        }
-
-        .value-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .value-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-            font-weight: 700;
-        }
-
-        .value-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* TEAM SECTION */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 2rem;
-        }
-
-        .team-member {
+        .info-card {
             background: rgba(21, 24, 41, 0.6);
             border: 1px solid var(--border-subtle);
+            padding: 2.5rem;
             border-radius: 2px;
-            overflow: hidden;
+            border-left: 3px solid var(--accent-gold);
             transition: all 0.3s ease;
         }
-
-        .team-member:hover {
-            border-color: var(--accent-gold);
+        .info-card:hover {
+            background: rgba(21, 24, 41, 0.9);
             box-shadow: 0 0 30px rgba(212, 165, 116, 0.3);
-            transform: translateY(-8px);
         }
-
-        .member-header {
-            padding: 2rem;
-            background: rgba(196, 30, 58, 0.1);
-            border-bottom: 2px solid rgba(212, 165, 116, 0.2);
-        }
-
-        .member-name {
+        .info-card h3 {
             font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.3rem;
-            color: var(--accent-gold);
-        }
-
-        .member-title {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            font-weight: 600;
-        }
-
-        .member-content {
-            padding: 2rem;
-        }
-
-        .member-credentials {
-            list-style: none;
             margin-bottom: 1rem;
-        }
-
-        .member-credentials li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .member-credentials li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
             color: var(--accent-gold);
             font-weight: 700;
         }
-
-        /* CTA SECTION */
-        .cta-section {
-            padding: 4rem 2rem;
-            text-align: center;
-            border-top: 2px solid;
-            border-image: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent) 1;
-            background: rgba(20, 24, 41, 0.5);
+        .info-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
         }
-
-        .cta-button {
-            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
-            color: white;
-            padding: 1.2rem 3rem;
-            border: none;
-            border-radius: 2px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 25px rgba(196, 30, 58, 0.3);
-            letter-spacing: 0.05em;
-        }
-
-        .cta-button:hover {
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
-            color: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(212, 165, 116, 0.4);
-        }
-
-        /* FOOTER */
         footer {
             background: rgba(10, 14, 39, 0.95);
-            border-top: 2px solid;
-            border-image: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent) 1;
+            border-top: 1px solid var(--border-subtle);
             padding: 4rem 2rem 2rem;
             margin-top: 3rem;
             position: relative;
         }
-
         footer::before {
             content: '';
             position: absolute;
@@ -409,7 +293,6 @@
             background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
             box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
         }
-
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -418,26 +301,20 @@
             gap: 2.5rem;
             margin-bottom: 3rem;
         }
-
         .footer-section h4 {
             font-size: 1.1rem;
             margin-bottom: 1.5rem;
             font-weight: 700;
             color: var(--accent-gold);
         }
-
-        .footer-section p, .footer-section a {
+        .footer-section a, .footer-section p {
             color: var(--text-muted);
+            text-decoration: none;
             font-size: 0.9rem;
             margin-bottom: 0.8rem;
-            text-decoration: none;
             transition: color 0.3s ease;
         }
-
-        .footer-section a:hover {
-            color: var(--accent-gold);
-        }
-
+        .footer-section a:hover { color: var(--accent-gold); }
         .footer-bottom {
             border-top: 1px solid var(--border-subtle);
             padding-top: 2rem;
@@ -445,292 +322,125 @@
             color: var(--text-muted);
             font-size: 0.85rem;
         }
-
-        /* RESPONSIVE */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
         @media (max-width: 768px) {
-            .page-header h1 {
-                font-size: 2.2rem;
-            }
-
-            .section-content {
-                grid-template-columns: 1fr;
-            }
-
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
+            .header-container { flex-direction: column; gap: 1rem; }
+            .logo-section { justify-content: center; width: 100%; }
+            nav { flex-direction: column; gap: 1rem; width: 100%; text-align: center; border-top: 1px solid var(--border-subtle); padding-top: 1rem; }
+            .page-header h1 { font-size: 1.8rem; }
+            .section-title h2 { font-size: 2rem; }
+            .info-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-
-    <!-- HEADER -->
     <header>
         <div class="header-container">
-            <div class="logo">VIPS <span>PROTECTION</span></div>
+            <a href="index.html" class="logo-section">
+                <img src="logo.png" alt="VIPS Protection Logo" class="logo-img">
+                <span class="logo">VIPS <span>PROTECTION</span></span>
+            </a>
             <nav>
-                <a href="/">Home</a>
-                <a href="/services">Services</a>
-                <a href="/about">About</a>
-                <button class="cta-button" style="background: linear-gradient(135deg, var(--accent-red), #e53d4f); color: white; padding: 0.75rem 1.5rem; border-radius: 2px; font-weight: 600; cursor: pointer; border: none; transition: all 0.3s ease; box-shadow: 0 0 15px rgba(196, 30, 58, 0.3);">Request Consultation</button>
+                <div class="nav-item">
+                    <a href="vip_services.html">Services</a>
+                    <span class="submenu-toggle">▼</span>
+                    <div class="submenu">
+                        <a href="vip_services.html">All Services</a>
+                        <a href="vip_primary_services.html">Primary Services</a>
+                        <a href="vip_surveillance.html">Surveillance Equipment</a>
+                    </div>
+                </div>
+                <a href="vip_about.html">About</a>
+                <div class="nav-item">
+                    <a href="vip_contact.html">Contact</a>
+                    <span class="submenu-toggle">▼</span>
+                    <div class="submenu">
+                        <a href="vip_contact.html">Contact VIPS</a>
+                        <a href="vip_bookings.html">Bookings</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="vip_employment_forms.html">Employment</a>
+                    <span class="submenu-toggle">▼</span>
+                    <div class="submenu">
+                        <a href="vip_employment_forms.html">Employment Forms</a>
+                        <a href="#applications">Applications</a>
+                    </div>
+                </div>
+                <button class="cta-button" onclick="location.href='vip_bookings.html'">Request Consultation</button>
             </nav>
         </div>
     </header>
 
-    <!-- PAGE HEADER -->
+    <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <span>About Us</span>
+    </div>
+
     <section class="page-header">
-        <h1>About VIPS Protection</h1>
-        <p>Veteran-led expertise in discreet executive protection and intelligence-driven security services for high-profile individuals and corporate leaders.</p>
-    </section>
-
-    <!-- MISSION & VISION -->
-    <section class="content-section">
-        <div class="section-header">
-            <div class="section-number">01</div>
-            <h2>Our Mission & Vision</h2>
-        </div>
-        <div class="section-content">
-            <div class="content-text">
-                <h3>Mission Statement</h3>
-                <p>To provide extraordinary executive protection and protective intelligence services that enable high-profile clients to operate with confidence and peace of mind—domestically and internationally.</p>
-                <p>We deliver discreet, evidence-based security solutions that anticipate risks, manage threats, and ensure seamless, secure movement through complex operational environments.</p>
-                <h3 style="margin-top: 2rem;">Vision</h3>
-                <p>To be the trusted partner for high-net-worth individuals, corporate leaders, and family offices seeking intelligence-driven, advance-planning-focused protection that operates invisibly and reliably.</p>
-            </div>
-            <div class="content-highlight">
-                <div class="highlight-item">
-                    <strong>Discreet & Professional</strong>
-                    <p>Protection that maintains your professional image and personal privacy without compromise.</p>
-                </div>
-                <div class="highlight-item">
-                    <strong>Intelligence-Driven</strong>
-                    <p>Risk assessment, threat monitoring, and proactive mitigation inform every operation.</p>
-                </div>
-                <div class="highlight-item">
-                    <strong>Advance-Focused</strong>
-                    <p>Meticulous planning, site assessment, and logistics coordination precede every engagement.</p>
-                </div>
-                <div class="highlight-item">
-                    <strong>Adaptable</strong>
-                    <p>Customized strategies that adjust to unique risk profiles, lifestyle, and operational requirements.</p>
-                </div>
-            </div>
+        <div class="page-header-content">
+            <h1>About <span class="highlight">VIPS Protection</span></h1>
+            <p class="subtitle">Veteran-owned executive protection firm with law enforcement expertise</p>
         </div>
     </section>
 
-    <!-- CORE VALUES -->
     <section class="content-section">
-        <div class="section-header">
-            <div class="section-number">02</div>
-            <h2>Core Values</h2>
+        <div class="section-title">
+            <h2>Our Mission & Values</h2>
+            <p>Professional, discreet protection services built on integrity, discipline, and expertise</p>
         </div>
-        <div class="values-grid">
-            <div class="value-card">
-                <div class="value-icon">🛡️</div>
-                <h3>Integrity</h3>
-                <p>Absolute commitment to ethical operations, confidentiality, and accountability in all client relationships and security protocols.</p>
-            </div>
-            <div class="value-card">
-                <div class="value-icon">🎯</div>
-                <h3>Discipline</h3>
-                <p>Military-grade operational discipline and precision applied to every protection assignment and risk mitigation strategy.</p>
-            </div>
-            <div class="value-card">
-                <div class="value-icon">🧠</div>
-                <h3>Intelligence</h3>
-                <p>Evidence-based decision making, real-time threat monitoring, and strategic risk assessment inform all operations.</p>
-            </div>
-            <div class="value-card">
-                <div class="value-icon">🔐</div>
-                <h3>Discretion</h3>
-                <p>Confidentiality in all matters. Protection that operates invisibly without disrupting client life or professional obligations.</p>
-            </div>
-            <div class="value-card">
-                <div class="value-icon">⚡</div>
-                <h3>Capability</h3>
-                <p>Operational excellence through continuous training, real-world experience, and adaptability to emerging threats.</p>
-            </div>
-            <div class="value-card">
-                <div class="value-icon">🤝</div>
-                <h3>Trust</h3>
-                <p>Reliable partnership built through consistent performance, professional conduct, and genuine commitment to client safety.</p>
-            </div>
-        </div>
-    </section>
 
-    <!-- COMPANY BACKGROUND -->
-    <section class="content-section">
-        <div class="section-header">
-            <div class="section-number">03</div>
-            <h2>Company Background</h2>
-        </div>
-        <div class="section-content">
-            <div class="content-text">
-                <h3>Veteran-Founded & Operated</h3>
-                <p>VIPS Personal Protection LLC was established by security professionals with deep backgrounds in law enforcement and protective operations. Our leadership team combines decades of operational expertise with a commitment to the highest standards of professional conduct.</p>
-                <p>Founded on principles of military discipline, operational excellence, and authentic commitment to client safety, VIPS has grown into a trusted provider of intelligence-driven protection services for executive-level clients.</p>
-                <h3 style="margin-top: 2rem;">Licensed & Credentialed</h3>
-                <p><strong>Texas Private Security Bureau License #C24076301</strong></p>
-                <p>All personnel are thoroughly vetted, background-checked, and trained in protective operations, threat assessment, and advanced security protocols.</p>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Our Mission</h3>
+                <p>To provide professional, intelligence-driven protection services that enable our clients to operate safely and securely. We combine military discipline with law enforcement expertise to deliver protection that is both discreet and highly effective.</p>
             </div>
-            <div class="content-highlight">
-                <div class="highlight-item">
-                    <strong>Founded</strong>
-                    <p>2022 - Built on years of accumulated protective operations expertise</p>
-                </div>
-                <div class="highlight-item">
-                    <strong>Based</strong>
-                    <p>Austin, Texas - Central location serving Texas, Southwest US, and international operations</p>
-                </div>
-                <div class="highlight-item">
-                    <strong>Specialization</strong>
-                    <p>Executive protection, travel security, advance operations, protective intelligence</p>
-                </div>
-                <div class="highlight-item">
-                    <strong>Clients</strong>
-                    <p>Corporate executives, high-net-worth individuals, public figures, family offices</p>
-                </div>
+            <div class="info-card">
+                <h3>Core Values</h3>
+                <p>Integrity, discipline, confidentiality, and operational excellence. We believe in transparent communication, professional standards, and unwavering commitment to our clients' safety and privacy.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- LEADERSHIP TEAM -->
-    <section class="content-section">
-        <div class="section-header">
-            <div class="section-number">04</div>
-            <h2>Leadership Team</h2>
-        </div>
-        <div class="team-grid">
-            <div class="team-member">
-                <div class="member-header">
-                    <div class="member-name">Dexter Jones</div>
-                    <div class="member-title">Owner & Chief Executive Protection Officer</div>
-                </div>
-                <div class="member-content">
-                    <p style="color: var(--text-muted); margin-bottom: 1rem;">Law enforcement background with extensive experience in protective operations, threat assessment, and advance planning for high-profile clients.</p>
-                    <ul class="member-credentials">
-                        <li>Executive Protection Specialist</li>
-                        <li>Threat Assessment & Intelligence</li>
-                        <li>Advance Operations Planning</li>
-                        <li>Multi-jurisdictional Law Enforcement</li>
-                    </ul>
-                </div>
+            <div class="info-card">
+                <h3>Veteran-Owned</h3>
+                <p>Founded by professionals with military and law enforcement backgrounds. Our team brings years of operational experience, discipline, and proven expertise in protection and security management.</p>
             </div>
-            <div class="team-member">
-                <div class="member-header">
-                    <div class="member-name">Strategic Operations</div>
-                    <div class="member-title">Veteran-Led Team</div>
-                </div>
-                <div class="member-content">
-                    <p style="color: var(--text-muted); margin-bottom: 1rem;">Trained protective agents and security specialists with backgrounds in law enforcement, military operations, and corporate security.</p>
-                    <ul class="member-credentials">
-                        <li>Armed & Trained Personnel</li>
-                        <li>Background Verified & Vetted</li>
-                        <li>Protective Operations Certified</li>
-                        <li>Continuous Professional Development</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="team-member">
-                <div class="member-header">
-                    <div class="member-name">Intelligence & Analysis</div>
-                    <div class="member-title">Risk Assessment Division</div>
-                </div>
-                <div class="member-content">
-                    <p style="color: var(--text-muted); margin-bottom: 1rem;">Specialized professionals in threat assessment, vulnerability analysis, geopolitical monitoring, and strategic risk mitigation.</p>
-                    <ul class="member-credentials">
-                        <li>Threat Assessment Specialists</li>
-                        <li>Intelligence Monitoring</li>
-                        <li>Risk Analysis & Planning</li>
-                        <li>Strategic Security Consulting</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHY CHOOSE VIPS -->
-    <section class="content-section">
-        <div class="section-header">
-            <div class="section-number">05</div>
-            <h2>Why Choose VIPS</h2>
-        </div>
-        <div class="values-grid">
-            <div class="value-card">
-                <div class="value-icon">🎖️</div>
-                <h3>Veteran Leadership</h3>
-                <p>Operational discipline and integrity from law enforcement and military backgrounds ensure reliability and accountability.</p>
-            </div>
-            <div class="value-card">
-                <div class="value-icon">🌍</div>
+            <div class="info-card">
                 <h3>Global Capability</h3>
-                <p>Domestic and international protection services with coordination networks across multiple jurisdictions and continents.</p>
+                <p>Operating domestically and internationally with coordination capabilities across jurisdictions. We maintain liaison networks and partnerships for seamless protection worldwide.</p>
             </div>
-            <div class="value-card">
-                <div class="value-icon">🎯</div>
-                <h3>Advance-Focused</h3>
-                <p>Meticulous pre-engagement planning sets us apart—site surveys, threat analysis, and logistics optimization precede every operation.</p>
+            <div class="info-card">
+                <h3>Customized Approach</h3>
+                <p>Every client receives individualized assessment and tailored protection strategy. We don't use one-size-fits-all solutions—we develop plans aligned to your unique risk profile and requirements.</p>
             </div>
-            <div class="value-card">
-                <div class="value-icon">🧠</div>
-                <h3>Intelligence-Driven</h3>
-                <p>Threat monitoring, risk assessment, and geopolitical awareness inform all protection strategies and operational decisions.</p>
-            </div>
-            <div class="value-card">
-                <div class="value-icon">🤫</div>
-                <h3>Discreet Operations</h3>
-                <p>Low-profile protection that maintains your professional credibility and personal privacy without compromise.</p>
-            </div>
-            <div class="value-card">
-                <div class="value-icon">📋</div>
-                <h3>Licensed & Regulated</h3>
-                <p>Texas PSB Licensed with full compliance to all regulatory requirements, legal standards, and professional ethics.</p>
+            <div class="info-card">
+                <h3>24/7 Availability</h3>
+                <p>Always-available response capability with rapid deployment and continuous monitoring. Your protection never stops, and our team is ready whenever you need us.</p>
             </div>
         </div>
     </section>
 
-    <!-- CTA SECTION -->
-    <section class="cta-section">
-        <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; font-weight: 700;">Discuss Your Security Needs</h2>
-        <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">VIPS Personal Protection LLC provides confidential consultations for any executive protection scenario. Our team is ready to develop a customized protection strategy aligned to your unique requirements.</p>
-        <button class="cta-button">Request a Consultation Today</button>
-        <div style="margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid var(--border-subtle);">
-            <p style="color: var(--accent-gold); font-weight: 600; margin-bottom: 1rem;">
-                512-914-6433 | info@vipsprotection.com
-            </p>
-            <p style="color: var(--text-muted); font-size: 0.85rem;">
-                807 Brazos Street, Suite 702 | Austin, TX 78701<br>
-                Texas PSB License #C24076301
-            </p>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h4>VIPS Protection</h4>
-                <p>Discreet executive protection and travel security for high-profile individuals, corporate leaders, and families.</p>
+                <p>Discreet executive protection and security services for high-profile individuals, corporate leaders, and families.</p>
             </div>
             <div class="footer-section">
                 <h4>Services</h4>
-                <a href="#">Travel Security</a>
-                <a href="#">Executive Protection</a>
-                <a href="#">Personal Protection</a>
-                <a href="#">Protective Intelligence</a>
-                <a href="#">Corporate Consulting</a>
+                <a href="vip_services.html">All Services</a>
+                <a href="vip_primary_services.html">Primary Services</a>
+                <a href="vip_surveillance.html">Surveillance Equipment</a>
+                <a href="vip_bookings.html">Book Consultation</a>
             </div>
             <div class="footer-section">
                 <h4>Company</h4>
-                <a href="#">About Us</a>
-                <a href="#">Our Values</a>
-                <a href="#">Leadership</a>
-                <a href="#">Contact</a>
+                <a href="vip_about.html">About Us</a>
+                <a href="vip_faq.html">FAQ</a>
+                <a href="vip_contact.html">Contact</a>
+                <a href="#">Terms & Conditions</a>
             </div>
             <div class="footer-section">
                 <h4>Contact Info</h4>
@@ -743,6 +453,5 @@
             <p>&copy; 2024 VIPS Personal Protection LLC. All rights reserved. Discreet. Professional. Trusted.</p>
         </div>
     </footer>
-
 </body>
 </html>
