@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Schedule a consultation with VIPS Personal Protection LLC. Book your executive protection consultation online. Discreet, professional security services.">
+    <title>Book a Consultation | VIPS Personal Protection LLC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #0a0e27;
+            --secondary-dark: #151829;
+            --accent-gold: #d4a574;
+            --accent-gold-light: #e8c89c;
+            --accent-red: #c41e3a;
+            --text-light: #e8e8e8;
+            --text-muted: #b0b0b0;
+            --border-subtle: #2a2e4a;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: rgba(10, 14, 39, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-subtle);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 0 30px rgba(212, 165, 116, 0.1);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 10px rgba(212, 165, 116, 0.5);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .logo-section:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            filter: drop-shadow(0 0 10px rgba(212, 165, 116, 0.4));
+            transition: all 0.3s ease;
+        }
+
+        .logo-section:hover .logo-img {
+            filter: drop-shadow(0 0 15px rgba(212, 165, 116, 0.6));
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light), var(--accent-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 8px rgba(212, 165, 116, 0.6));
+        }
+
+        .logo span {
+            color: var(--accent-red);
+            filter: drop-shadow(0 0 5px rgba(196, 30, 58, 0.4));
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav > a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        nav > a:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-item > a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item > a:hover {
+            color: var(--accent-gold);
+        }
+
+        .submenu-toggle {
+            color: var(--accent-gold);
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item:hover .submenu-toggle {
+            transform: rotate(180deg);
+        }
+
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(10, 14, 39, 0.98);
+            border: 1px solid var(--border-subtle);
+            border-top: 2px solid var(--accent-gold);
+            border-radius: 2px;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            margin-top: 1rem;
+        }
+
+        .nav-item:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .submenu a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+            font-size: 0.9rem;
+        }
+
+        .submenu a:hover {
+            background: rgba(212, 165, 116, 0.1);
+            color: var(--accent-gold);
+            border-left-color: var(--accent-gold);
+            padding-left: 1.8rem;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(196, 30, 58, 0.3);
+            white-space: nowrap;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
+        }
+
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 2rem;
+            border-bottom: 2px solid;
+            border-image: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent) 1;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(196, 30, 58, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(212, 165, 116, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .page-header h1 .highlight {
+            color: var(--accent-gold);
+        }
+
+        .page-header .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+            line-height: 1.8;
+        }
+
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            padding: 1rem 2rem;
+            background: rgba(20, 24, 41, 0.5);
+            text-align: center;
+            border-bottom: 1px solid var(--border-subtle);
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-red);
+        }
+
+        /* ===== BOOKING FORM SECTION ===== */
+        .booking-section {
+            padding: 5rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .booking-container {
+            background: rgba(21, 24, 41, 0.6);
+            border: 1px solid var(--border-subtle);
+            border-left: 3px solid var(--accent-gold);
+            padding: 3rem;
+            border-radius: 2px;
+        }
+
+        .booking-container h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        .booking-intro {
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(10, 14, 39, 0.5);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-light);
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            background: rgba(10, 14, 39, 0.8);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.3), inset 0 0 10px rgba(212, 165, 116, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .form-group select option {
+            background: var(--primary-dark);
+            color: var(--text-light);
+        }
+
+        /* ===== CONSULTATION OPTIONS ===== */
+        .consultation-options {
+            background: rgba(20, 24, 41, 0.5);
+            padding: 2rem;
+            border-radius: 2px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .consultation-options h3 {
+            margin-bottom: 1.5rem;
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+        }
+
+        .radio-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(10, 14, 39, 0.5);
+            border: 1px solid var(--border-subtle);
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .radio-option:hover {
+            border-color: var(--accent-gold);
+            background: rgba(10, 14, 39, 0.8);
+        }
+
+        .radio-option input[type="radio"] {
+            width: auto;
+            margin-right: 0.8rem;
+            cursor: pointer;
+            accent-color: var(--accent-gold);
+        }
+
+        .radio-option label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        /* ===== BUTTONS ===== */
+        .button-group {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .btn-submit {
+            flex: 1;
+            padding: 1.2rem 2rem;
+            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
+            color: white;
+            border: none;
+            border-radius: 2px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(196, 30, 58, 0.3);
+            letter-spacing: 0.05em;
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(212, 165, 116, 0.4);
+        }
+
+        .btn-reset {
+            padding: 1.2rem 2rem;
+            background: transparent;
+            color: var(--accent-gold);
+            border: 2px solid var(--accent-gold);
+            border-radius: 2px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-reset:hover {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+
+        /* ===== BOOKING INFO SECTION ===== */
+        .booking-info {
+            padding: 3rem 2rem;
+            background: rgba(20, 24, 41, 0.3);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            background: rgba(21, 24, 41, 0.6);
+            padding: 2rem;
+            border-left: 3px solid var(--accent-gold);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            background: rgba(21, 24, 41, 0.9);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.2);
+        }
+
+        .info-card h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .info-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .info-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: rgba(10, 14, 39, 0.95);
+            border-top: 1px solid var(--border-subtle);
+            padding: 4rem 2rem 2rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        .footer-section a, .footer-section p {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .logo-section {
+                justify-content: center;
+                width: 100%;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                text-align: center;
+                border-top: 1px solid var(--border-subtle);
+                padding-top: 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .booking-container {
+                padding: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .radio-group {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn-submit, .btn-reset {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo-section">
+                <img src="logo.png" alt="VIPS Protection Logo" class="logo-img">
+                <span class="logo">VIPS <span>PROTECTION</span></span>
+            </a>
+            <nav>
+                <div class="nav-item">
+                    <a href="vip_services.html">Services</a>
+                    <span class="submenu-toggle">▼</span>
+                    <div class="submenu">
+                        <a href="vip_services.html">All Services</a>
+                        <a href="vip_primary_services.html">Primary Services</a>
+                        <a href="vip_surveillance.html">Surveillance Equipment</a>
+                    </div>
+                </div>
+                <a href="vip_about.html">About</a>
+                <div class="nav-item">
+                    <a href="vip_contact.html">Contact</a>
+                    <span class="submenu-toggle">▼</span>
+                    <div class="submenu">
+                        <a href="vip_contact.html">Contact VIPS</a>
+                        <a href="vip_bookings.html">Bookings</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="vip_employment_forms.html">Employment</a>
+                    <span class="submenu-toggle">▼</span>
+                    <div class="submenu">
+                        <a href="vip_employment_forms.html">Employment Forms</a>
+                        <a href="#applications">Applications</a>
+                    </div>
+                </div>
+                <button class="cta-button">Request Consultation</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        <a href="/">Home</a>
+        <span>›</span>
+        <a href="vip_contact.html">Contact</a>
+        <span>›</span>
+        <span>Book a Consultation</span>
+    </div>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1>Schedule Your <span class="highlight">Consultation</span></h1>
+            <p class="subtitle">Book your confidential consultation with our protection specialists. Professional, discreet, and convenient scheduling.</p>
+        </div>
+    </section>
+
+    <!-- BOOKING FORM -->
+    <section class="booking-section" id="bookings">
+        <div class="booking-container">
+            <h2>📅 Book Your Consultation</h2>
+            <p class="booking-intro">
+                Schedule a confidential consultation with VIPS Personal Protection LLC. Our protection specialists will discuss your specific security needs, evaluate your risk profile, and recommend tailored solutions. All consultations are completely confidential.
+            </p>
+
+            <form>
+                <!-- Personal Information -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="(512) 000-0000">
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company/Organization</label>
+                        <input type="text" id="company" name="company" placeholder="Your company name">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Job Title/Position</label>
+                    <input type="text" id="title" name="title" placeholder="Your position">
+                </div>
+
+                <!-- Service Selection -->
+                <div class="consultation-options">
+                    <h3>Service of Interest *</h3>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="service1" name="service" value="Executive Protection" required>
+                            <label for="service1">Executive Protection</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="service2" name="service" value="Travel Security">
+                            <label for="service2">Travel Security</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="service3" name="service" value="Personal Protection">
+                            <label for="service3">Personal Protection</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="service4" name="service" value="Corporate Security">
+                            <label for="service4">Corporate Security</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="service5" name="service" value="Residential Security">
+                            <label for="service5">Residential Security</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="service6" name="service" value="Other">
+                            <label for="service6">Other Service</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Consultation Method -->
+                <div class="consultation-options">
+                    <h3>Preferred Consultation Method *</h3>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="method1" name="method" value="Phone Consultation" required>
+                            <label for="method1">Phone Consultation</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="method2" name="method" value="Video Conference">
+                            <label for="method2">Video Conference</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="method3" name="method" value="In-Person Meeting">
+                            <label for="method3">In-Person Meeting</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="method4" name="method" value="Email Inquiry">
+                            <label for="method4">Email Inquiry</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Date & Time Preference -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date">Preferred Date *</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Preferred Time *</label>
+                        <select id="time" name="time" required>
+                            <option value="">Select a time</option>
+                            <option value="8:00 AM">8:00 AM - 9:00 AM</option>
+                            <option value="9:00 AM">9:00 AM - 10:00 AM</option>
+                            <option value="10:00 AM">10:00 AM - 11:00 AM</option>
+                            <option value="11:00 AM">11:00 AM - 12:00 PM</option>
+                            <option value="1:00 PM">1:00 PM - 2:00 PM</option>
+                            <option value="2:00 PM">2:00 PM - 3:00 PM</option>
+                            <option value="3:00 PM">3:00 PM - 4:00 PM</option>
+                            <option value="4:00 PM">4:00 PM - 5:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="form-group">
+                    <label for="message">Tell Us About Your Security Needs</label>
+                    <textarea id="message" name="message" placeholder="Describe your security situation, concerns, or specific requirements. All information is kept confidential."></textarea>
+                </div>
+
+                <!-- Confidentiality Notice -->
+                <div style="background: rgba(20, 24, 41, 0.8); padding: 1.5rem; border-radius: 2px; margin-bottom: 2rem; border-left: 3px solid var(--accent-gold);">
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">
+                        <strong style="color: var(--accent-gold);">Confidentiality:</strong> All information provided in this form is completely confidential and will be used solely for scheduling your consultation and discussing your security needs. We never share client information with third parties.
+                    </p>
+                </div>
+
+                <!-- Submit Buttons -->
+                <div class="button-group">
+                    <button type="submit" class="btn-submit">Schedule Consultation</button>
+                    <button type="reset" class="btn-reset">Clear Form</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- BOOKING INFO -->
+    <section class="booking-info">
+        <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2rem;">Why Schedule a Consultation?</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-icon">🎯</div>
+                <h3>Customized Assessment</h3>
+                <p>We evaluate your specific risk profile, lifestyle, and operational requirements to develop tailored protection strategies aligned to your unique needs.</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">🔐</div>
+                <h3>Confidential Discussion</h3>
+                <p>All consultations are completely confidential. Your privacy and security information are protected. No commitment required.</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">💼</div>
+                <h3>Expert Guidance</h3>
+                <p>Our protection specialists bring law enforcement and military backgrounds. We provide honest assessment and professional recommendations for your security.</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">🌐</div>
+                <h3>Flexible Options</h3>
+                <p>Choose from phone, video, email, or in-person consultations. We accommodate your schedule and preferred communication method.</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">⚡</div>
+                <h3>Quick Response</h3>
+                <p>We respond to consultation requests within 24 hours. Expedited scheduling available for urgent situations and time-sensitive needs.</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">✅</div>
+                <h3>No Obligation</h3>
+                <p>Initial consultation is no-obligation. Get professional security assessment and recommendations with zero commitment to proceed.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>VIPS Protection</h4>
+                <p>Discreet executive protection and security services for high-profile individuals, corporate leaders, and families.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <a href="vip_services.html">All Services</a>
+                <a href="vip_primary_services.html">Primary Services</a>
+                <a href="vip_surveillance.html">Surveillance Equipment</a>
+                <a href="vip_services.html">Travel Security</a>
+                <a href="vip_services.html">Executive Protection</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="vip_about.html">About Us</a>
+                <a href="vip_faq.html">FAQ</a>
+                <a href="vip_contact.html">Contact</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>Phone: 512-914-6433</p>
+                <p>Email: info@vipsprotection.com</p>
+                <p>Address: 807 Brazos Street, Suite 702, Austin, TX 78701</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 VIPS Personal Protection LLC. All rights reserved. Discreet. Professional. Trusted.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
