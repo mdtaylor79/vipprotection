@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join VIPS Personal Protection LLC. Browse employment opportunities, view job requirements, and apply to join our elite protection team.">
+    <title>Employment | VIPS Personal Protection LLC</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary-dark: #0a0e27;
+            --secondary-dark: #151829;
+            --accent-gold: #d4a574;
+            --accent-gold-light: #e8c89c;
+            --accent-red: #c41e3a;
+            --text-light: #e8e8e8;
+            --text-muted: #b0b0b0;
+            --border-subtle: #2a2e4a;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        header {
+            background: rgba(10, 14, 39, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-subtle);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 0 30px rgba(212, 165, 116, 0.1);
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
+        }
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .logo-section:hover { transform: translateY(-2px); }
+        .logo-img {
+            height: 60px;
+            width: auto;
+            filter: drop-shadow(0 0 10px rgba(212, 165, 116, 0.4));
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light), var(--accent-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 8px rgba(212, 165, 116, 0.6));
+        }
+        .logo span { color: var(--accent-red); }
+        nav {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        nav > a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        nav > a:hover { color: var(--accent-gold); }
+        .nav-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .nav-item > a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .nav-item > a:hover { color: var(--accent-gold); }
+        .submenu-toggle {
+            color: var(--accent-gold);
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        .nav-item:hover .submenu-toggle { transform: rotate(180deg); }
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(10, 14, 39, 0.98);
+            border: 1px solid var(--border-subtle);
+            border-top: 2px solid var(--accent-gold);
+            border-radius: 2px;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            margin-top: 1rem;
+        }
+        .nav-item:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .submenu a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+            font-size: 0.9rem;
+        }
+        .submenu a:hover {
+            background: rgba(212, 165, 116, 0.1);
+            color: var(--accent-gold);
+            border-left-color: var(--accent-gold);
+            padding-left: 1.8rem;
+        }
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(196, 30, 58, 0.3);
+        }
+        .cta-button:hover {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
+        }
+        .page-header {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 2rem;
+            border-bottom: 2px solid;
+            border-image: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent) 1;
+        }
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(196, 30, 58, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(212, 165, 116, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .page-header-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+        .page-header h1 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        .page-header h1 .highlight { color: var(--accent-gold); }
+        .page-header .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+            line-height: 1.8;
+        }
+        .breadcrumb {
+            padding: 1rem 2rem;
+            background: rgba(20, 24, 41, 0.5);
+            text-align: center;
+            border-bottom: 1px solid var(--border-subtle);
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .breadcrumb a:hover { color: var(--accent-red); }
+        .content-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 0 10px rgba(212, 165, 116, 0.6);
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-gold), var(--text-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .employment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+        .employment-card {
+            background: rgba(21, 24, 41, 0.6);
+            border: 1px solid var(--border-subtle);
+            padding: 2.5rem;
+            border-radius: 2px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .employment-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-8px);
+            background: rgba(21, 24, 41, 0.9);
+            box-shadow: 0 0 30px rgba(212, 165, 116, 0.3);
+        }
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(196, 30, 58, 0.4);
+            transition: all 0.3s ease;
+        }
+        .employment-card:hover .card-icon {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            box-shadow: 0 0 30px rgba(212, 165, 116, 0.6);
+            transform: scale(1.1);
+        }
+        .employment-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+        .employment-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+        .card-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 2px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .card-button:hover {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        .info-section {
+            background: rgba(20, 24, 41, 0.8);
+            border-left: 4px solid var(--accent-gold);
+            padding: 2.5rem;
+            border-radius: 2px;
+            margin-top: 3rem;
+        }
+        .info-section h3 {
+            color: var(--accent-gold);
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+        }
+        .requirements-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .requirement-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .requirement-item::before {
+            content: '✓';
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        .requirement-item p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        footer {
+            background: rgba(10, 14, 39, 0.95);
+            border-top: 1px solid var(--border-subtle);
+            padding: 4rem 2rem 2rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+        .footer-section a, .footer-section p {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s ease;
+        }
+        .footer-section a:hover { color: var(--accent-gold); }
+        .footer-bottom {
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 768px) {
+            .header-container { flex-direction: column; gap: 1rem; }
+            .logo-section { justify-content: center; width: 100%; }
+            nav { flex-direction: column; gap: 1rem; width: 100%; text-align: center; border-top: 1px solid var(--border-subtle); padding-top: 1rem; }
+            .page-header h1 { font-size: 1.8rem; }
+            .employment-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo-section">
+                <img src="logo.png" alt="VIPS Protection Logo" class="logo-img">
+                <span class="logo">VIPS <span>PROTECTION</span></span>
+            </a>
+            <nav>
+                <div class="nav-item">
+                    <a href="vip_services.html">Services</a>
+                    <span class="submenu-toggle">▼</span>
+                    <div class="submenu">
+                        <a href="vip_services.html">All Services</a>
+                        <a href="vip_primary_services.html">Primary Services</a>
+                        <a href="vip_surveillance.html">Surveillance Equipment</a>
+                    </div>
+                </div>
+                <a href="vip_about.html">About</a>
+                <div class="nav-item">
+                    <a href="vip_contact.html">Contact</a>
+                    <span class="submenu-toggle">▼</span>
+                    <div class="submenu">
+                        <a href="vip_contact.html">Contact VIPS</a>
+                        <a href="vip_bookings.html">Bookings</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="vip_employment.html">Employment</a>
+                    <span class="submenu-toggle">▼</span>
+                    <div class="submenu">
+                        <a href="vip_employment_forms.html">Employment Forms</a>
+                        <a href="vip_application.html">Application</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="vip_faq.html">FAQ</a>
+                </div>
+                <button class="cta-button" onclick="location.href='vip_bookings.html'">Request Consultation</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span> › </span>
+        <a href="vip_employment.html">Employment</a>
+    </div>
+
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1>Join Our <span class="highlight">Protection Team</span></h1>
+            <p class="subtitle">Professional employment opportunities with VIPS Personal Protection LLC</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="section-title">
+            <h2>Employment Opportunities</h2>
+        </div>
+        <div class="employment-grid">
+            <div class="employment-card">
+                <div class="card-icon">📋</div>
+                <h3>Employment Forms</h3>
+                <p>Review and download all required employment documentation, including W-9 forms, non-disclosure agreements, I-9 verification, and other essential paperwork for onboarding.</p>
+                <a href="vip_employment_forms.html" class="card-button">View Forms</a>
+            </div>
+
+            <div class="employment-card">
+                <div class="card-icon">📝</div>
+                <h3>Submit Application</h3>
+                <p>Complete our comprehensive employment application. Provide your professional background, security experience, certifications, and professional references for consideration.</p>
+                <a href="vip_application.html" class="card-button">Apply Now</a>
+            </div>
+
+            <div class="employment-card">
+                <div class="card-icon">💼</div>
+                <h3>Career Information</h3>
+                <p>Learn about career paths, compensation structure, benefits, professional development opportunities, and what it takes to succeed as a protection specialist at VIPS.</p>
+                <a href="#career-info" class="card-button">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="info-section">
+            <h3>Why Join VIPS Protection?</h3>
+            <div class="requirements-list">
+                <div class="requirement-item">
+                    <p><strong>Professional Team</strong> - Work alongside veteran professionals with military and law enforcement backgrounds</p>
+                </div>
+                <div class="requirement-item">
+                    <p><strong>Competitive Compensation</strong> - Attractive salary and benefits package for qualified professionals</p>
+                </div>
+                <div class="requirement-item">
+                    <p><strong>Career Development</strong> - Opportunities for advancement and specialized training in protection operations</p>
+                </div>
+                <div class="requirement-item">
+                    <p><strong>Global Operations</strong> - Work on domestic and international assignments with diverse clientele</p>
+                </div>
+                <div class="requirement-item">
+                    <p><strong>Elite Standards</strong> - Join a team committed to operational excellence and professional discipline</p>
+                </div>
+                <div class="requirement-item">
+                    <p><strong>Flexible Scheduling</strong> - Varied assignments and scheduling to accommodate your professional goals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="info-section" id="career-info">
+            <h3>Requirements for Employment</h3>
+            <div class="requirements-list">
+                <div class="requirement-item">
+                    <p>Valid government-issued ID and pass comprehensive background investigation</p>
+                </div>
+                <div class="requirement-item">
+                    <p>Professional security, law enforcement, or military experience preferred</p>
+                </div>
+                <div class="requirement-item">
+                    <p>Valid driver's license with clean driving record</p>
+                </div>
+                <div class="requirement-item">
+                    <p>Professional demeanor and commitment to confidentiality</p>
+                </div>
+                <div class="requirement-item">
+                    <p>Physical fitness and ability to work varied and extended schedules</p>
+                </div>
+                <div class="requirement-item">
+                    <p>Valid Texas security license (PSB) or willingness to obtain certification</p>
+                </div>
+                <div class="requirement-item">
+                    <p>Professional references from previous employers or security industry contacts</p>
+                </div>
+                <div class="requirement-item">
+                    <p>Excellent communication and interpersonal skills</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>VIPS Protection</h4>
+                <p>Discreet executive protection and security services for high-profile individuals, corporate leaders, and families.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <a href="vip_services.html">All Services</a>
+                <a href="vip_primary_services.html">Primary Services</a>
+                <a href="vip_surveillance.html">Surveillance Equipment</a>
+                <a href="vip_bookings.html">Book Consultation</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="vip_about.html">About Us</a>
+                <a href="vip_faq.html">FAQ</a>
+                <a href="vip_contact.html">Contact</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>Phone: 512-914-6433</p>
+                <p>Email: info@vipsprotection.com</p>
+                <p>Address: 807 Brazos Street, Suite 702, Austin, TX 78701</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 VIPS Personal Protection LLC. All rights reserved. Discreet. Professional. Trusted.</p>
+        </div>
+    </footer>
+</body>
+</html>
