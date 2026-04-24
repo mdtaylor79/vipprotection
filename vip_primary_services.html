@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Primary protection services from VIPS Personal Protection LLC: Armed Courier, Executive Protection, Personal Protection, Residential & Corporate Security, Construction Site Protection, Private Investigations, and School Safety Services.">
+    <title>Primary Services | VIPS Personal Protection LLC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #0a0e27;
+            --secondary-dark: #151829;
+            --accent-gold: #d4a574;
+            --accent-gold-light: #e8c89c;
+            --accent-red: #c41e3a;
+            --text-light: #e8e8e8;
+            --text-muted: #b0b0b0;
+            --border-subtle: #2a2e4a;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: rgba(10, 14, 39, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-subtle);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 0 30px rgba(212, 165, 116, 0.1);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 10px rgba(212, 165, 116, 0.5);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .logo-section:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            filter: drop-shadow(0 0 10px rgba(212, 165, 116, 0.4));
+            transition: all 0.3s ease;
+        }
+
+        .logo-section:hover .logo-img {
+            filter: drop-shadow(0 0 15px rgba(212, 165, 116, 0.6));
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light), var(--accent-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 8px rgba(212, 165, 116, 0.6));
+        }
+
+        .logo span {
+            color: var(--accent-red);
+            filter: drop-shadow(0 0 5px rgba(196, 30, 58, 0.4));
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav > a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav > a:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-item > a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item > a:hover {
+            color: var(--accent-gold);
+        }
+
+        .submenu-toggle {
+            color: var(--accent-gold);
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item:hover .submenu-toggle {
+            transform: rotate(180deg);
+        }
+
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(10, 14, 39, 0.98);
+            border: 1px solid var(--border-subtle);
+            border-top: 2px solid var(--accent-gold);
+            border-radius: 2px;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            margin-top: 1rem;
+        }
+
+        .nav-item:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .submenu a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+            font-size: 0.9rem;
+        }
+
+        .submenu a:hover {
+            background: rgba(212, 165, 116, 0.1);
+            color: var(--accent-gold);
+            border-left-color: var(--accent-gold);
+            padding-left: 1.8rem;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(196, 30, 58, 0.3);
+            white-space: nowrap;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
+        }
+
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 2rem;
+            border-bottom: 2px solid;
+            border-image: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent) 1;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(196, 30, 58, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(212, 165, 116, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .page-header .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+            line-height: 1.8;
+        }
+
+        /* ===== BREADCRUMB ===== */
+        .breadcrumb {
+            padding: 1rem 2rem;
+            background: rgba(20, 24, 41, 0.5);
+            text-align: center;
+            border-bottom: 1px solid var(--border-subtle);
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-red);
+        }
+
+        /* ===== SERVICES GRID ===== */
+        .services-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 0 10px rgba(212, 165, 116, 0.6);
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-gold), var(--text-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(21, 24, 41, 0.6);
+            border: 1px solid var(--border-subtle);
+            padding: 2.5rem;
+            border-radius: 2px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 165, 116, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-8px);
+            background: rgba(21, 24, 41, 0.9);
+            box-shadow: 0 0 30px rgba(212, 165, 116, 0.3), inset 0 0 20px rgba(212, 165, 116, 0.05);
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(196, 30, 58, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover .service-icon {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            box-shadow: 0 0 30px rgba(212, 165, 116, 0.6);
+            transform: scale(1.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .service-card a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            align-self: flex-start;
+        }
+
+        .service-card a:hover {
+            gap: 1rem;
+            color: var(--accent-red);
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 2px solid;
+            border-image: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent) 1;
+            position: relative;
+            background: rgba(20, 24, 41, 0.3);
+            margin-top: 4rem;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.05em;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
+            color: white;
+            box-shadow: 0 0 20px rgba(196, 30, 58, 0.3);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 165, 116, 0.4);
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: rgba(10, 14, 39, 0.95);
+            border-top: 1px solid var(--border-subtle);
+            padding: 4rem 2rem 2rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        .footer-section a, .footer-section p {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .logo-section {
+                justify-content: center;
+                width: 100%;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                text-align: center;
+                border-top: 1px solid var(--border-subtle);
+                padding-top: 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-primary {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo-section">
+                <img src="logo.png" alt="VIPS Protection Logo" class="logo-img">
+                <span class="logo">VIPS <span>PROTECTION</span></span>
+            </a>
+            <nav>
+                <div class="nav-item">
+                    <a href="vip_services.html">Services</a>
+                    <span class="submenu-toggle">▼</span>
+                    <div class="submenu">
+                        <a href="vip_services.html">All Services</a>
+                        <a href="vip_primary_services.html">Primary Services</a>
+                        <a href="vip_surveillance.html">Surveillance Equipment</a>
+                    </div>
+                </div>
+                <a href="vip_about.html">About</a>
+                <div class="nav-item">
+                    <a href="vip_contact.html">Contact</a>
+                    <span class="submenu-toggle">▼</span>
+                    <div class="submenu">
+                        <a href="vip_contact.html">Contact VIPS</a>
+                        <a href="vip_contact.html#bookings">Bookings</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="#employment">Employment</a>
+                    <span class="submenu-toggle">▼</span>
+                    <div class="submenu">
+                        <a href="#employment-forms">Employment Forms</a>
+                        <a href="#applications">Applications</a>
+                    </div>
+                </div>
+                <button class="cta-button">Request Consultation</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        <a href="/">Home</a>
+        <span>›</span>
+        <a href="vip_services.html">Services</a>
+        <span>›</span>
+        <span>Primary Services</span>
+    </div>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1>Primary <span style="color: var(--accent-gold);">Protection Services</span></h1>
+            <p class="subtitle">Comprehensive security solutions for executives, individuals, assets, and facilities. Professional protection tailored to your unique needs.</p>
+        </div>
+    </section>
+
+    <!-- PRIMARY SERVICES -->
+    <section class="services-section">
+        <div class="section-title">
+            <h2>Our Service Offerings</h2>
+            <p>Professional protection services for every security need</p>
+        </div>
+
+        <div class="services-grid">
+            <!-- Armed Courier -->
+            <div class="service-card">
+                <div class="service-icon">🚗</div>
+                <h3>Armed Courier</h3>
+                <p>VIPS Personal Protection LLC specializes in outbound & inbound client pickup and delivery of high-end jewelry, precious metals & coins, and other luxury goods. You can depend on us to handle your luxury merchandise with exquisite care and punctuality.</p>
+                <a href="vip_contact.html">Learn More →</a>
+            </div>
+
+            <!-- Executive Protection -->
+            <div class="service-card">
+                <div class="service-icon">💼</div>
+                <h3>Executive Protection</h3>
+                <p>VIPS Personal Protection LLC provides secure and professional protection services to high-profile business and corporate executives concerned about exposure to personal risk due to their elite status. We focus on client safety as well as providing a unique service experience while in our care. Our armed guards are dressed for the occasion and will always be discrete and maintain your protection as a priority while meeting your tailored needs.</p>
+                <a href="vip_contact.html">Learn More →</a>
+            </div>
+
+            <!-- Personal Protection -->
+            <div class="service-card">
+                <div class="service-icon">👤</div>
+                <h3>Personal Protection</h3>
+                <p>VIPS Personal Protection LLC provides secure and professional protection services to high-profile individuals, celebrities, entertainers, and athletes concerned about exposure to personal risk due to their elite status. We focus on client safety as well as providing a unique service experience while in our care. Our armed guards are dressed for the occasion and will always be discrete and maintain your protection as a priority while escorting you during your travel, lodging, events, fine dining, or other engagements.</p>
+                <a href="vip_contact.html">Learn More →</a>
+            </div>
+
+            <!-- Residential Security Threat Assessment -->
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Residential Security Threat Assessment</h3>
+                <p>VIPS Personal Protection LLC focuses on solution-oriented problem solving to assess your security risks and identify potential threats at your home for the protection of your family, pets, and property. We will help you mitigate security vulnerabilities.</p>
+                <a href="vip_contact.html">Learn More →</a>
+            </div>
+
+            <!-- Corporate Security Consulting -->
+            <div class="service-card">
+                <div class="service-icon">🏢</div>
+                <h3>Corporate Security Consulting</h3>
+                <p>VIPS Personal Protection LLC focuses on solution-oriented problem solving to assess your security risks and identify potential threats at your place of business and in the workplace environment. We will help you mitigate security vulnerabilities.</p>
+                <a href="vip_contact.html">Learn More →</a>
+            </div>
+
+            <!-- Construction Site Protection -->
+            <div class="service-card">
+                <div class="service-icon">🏗️</div>
+                <h3>Construction Site Protection</h3>
+                <p>VIPS Personal Protection LLC will secure your construction site from potential threats of theft, trespass, and sabotage. You can rely on us to be alert and attentive around the clock while we protect your equipment and site. We work closely with local law enforcement as needed and will handle all initial report writing.</p>
+                <a href="vip_contact.html">Learn More →</a>
+            </div>
+
+            <!-- Private Investigations -->
+            <div class="service-card">
+                <div class="service-icon">🔍</div>
+                <h3>Private Investigations</h3>
+                <p>VIPS Personal Protection LLC provides reliable and trusted investigative services in practice areas ranging from but not limited to fraud, witness identification and interviewing, background checks, background character analysis, and criminal and civil investigations.</p>
+                <a href="vip_contact.html">Learn More →</a>
+            </div>
+
+            <!-- School Safety & Security -->
+            <div class="service-card">
+                <div class="service-icon">🎓</div>
+                <h3>School Safety & Security</h3>
+                <p>VIPS Personal Protection LLC is committed to the physical safety and security of students, teachers, staff and administrators in the school environment. We provide a robust school guardian program designed to meet the needs of each unique campus and district. We will conduct a threat assessment, identify areas of vulnerability and tailor a security plan of action that is steadfast. Our guardians are highly trained and skilled armed professionals, ready to be your Guardian of protection.</p>
+                <a href="vip_contact.html">Learn More →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <h2>Ready to Protect What Matters?</h2>
+        <p>VIPS Personal Protection LLC provides comprehensive security solutions for executives, individuals, families, businesses, and institutions. Contact us today to discuss your protection needs.</p>
+        <button class="btn-primary">Request Service Consultation</button>
+        <div style="margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid var(--border-subtle);">
+            <p style="margin: 0;">
+                <strong style="color: var(--accent-gold);">512-914-6433</strong> | 
+                <strong style="color: var(--accent-gold); margin-left: 1rem;">info@vipsprotection.com</strong>
+            </p>
+            <p style="margin-top: 1rem; font-size: 0.85rem;">
+                807 Brazos Street, Suite 702 | Austin, TX 78701<br>
+                Texas PSB License #C24076301
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>VIPS Protection</h4>
+                <p>Discreet executive protection and security services for high-profile individuals, corporate leaders, and institutions.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <a href="vip_services.html">All Services</a>
+                <a href="vip_primary_services.html">Primary Services</a>
+                <a href="vip_surveillance.html">Surveillance Equipment</a>
+                <a href="vip_services.html">Travel Security</a>
+                <a href="vip_services.html">Executive Protection</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="vip_about.html">About Us</a>
+                <a href="vip_faq.html">FAQ</a>
+                <a href="vip_contact.html">Contact</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>Phone: 512-914-6433</p>
+                <p>Email: info@vipsprotection.com</p>
+                <p>Address: 807 Brazos Street, Suite 702, Austin, TX 78701</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 VIPS Personal Protection LLC. All rights reserved. Discreet. Professional. Trusted.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
