@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Executive protection and travel security for high-profile individuals, corporate leaders, and families. Discreet, intelligence-driven protection services domestically and internationally.">
+    <title>VIPS Personal Protection LLC | Executive Protection & Travel Security</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #0a0e27;
+            --secondary-dark: #151829;
+            --accent-gold: #d4a574;
+            --accent-gold-light: #e8c89c;
+            --accent-red: #c41e3a;
+            --text-light: #e8e8e8;
+            --text-muted: #b0b0b0;
+            --border-subtle: #2a2e4a;
+        }
+
+        /* Gold gradient shine effect */
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        .gold-shine {
+            background: linear-gradient(90deg, transparent, var(--accent-gold-light), var(--accent-gold), var(--accent-gold-light), transparent);
+            background-size: 1000px 100%;
+            animation: shimmer 3s infinite;
+        }
+
+        .gold-trim {
+            position: relative;
+        }
+
+        .gold-trim::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 15px rgba(212, 165, 116, 0.6);
+        }
+
+        .gold-trim::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 15px rgba(212, 165, 116, 0.6);
+        }
+
+        .gold-trim-vertical::before {
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 3px;
+            height: auto;
+        }
+
+        .gold-trim-vertical::after {
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: 3px;
+            height: auto;
+        }
+
+        .gold-border-accent {
+            border: 1px solid;
+            border-image: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light), var(--accent-gold)) 1;
+            box-shadow: inset 0 0 20px rgba(212, 165, 116, 0.1), 0 0 20px rgba(212, 165, 116, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* ===== HEADER / NAVIGATION ===== */
+        header {
+            background: rgba(10, 14, 39, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-subtle);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 0 30px rgba(212, 165, 116, 0.1);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 10px rgba(212, 165, 116, 0.5);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            color: var(--accent-gold);
+            position: relative;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light), var(--accent-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 8px rgba(212, 165, 116, 0.6));
+        }
+
+        .logo span {
+            color: var(--accent-red);
+            filter: drop-shadow(0 0 5px rgba(196, 30, 58, 0.4));
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-gold-light));
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px rgba(212, 165, 116, 0.5);
+        }
+
+        nav a:hover {
+            color: var(--accent-gold);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(196, 30, 58, 0.3);
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+            border-bottom: 2px solid;
+            border-image: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent) 1;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 25px rgba(212, 165, 116, 0.8), inset 0 0 20px rgba(212, 165, 116, 0.3);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(196, 30, 58, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(212, 165, 116, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 .highlight {
+            color: var(--accent-gold);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.05em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
+            color: white;
+            box-shadow: 0 0 20px rgba(196, 30, 58, 0.3);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 165, 116, 0.4);
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-gold);
+            border: 2px solid var(--accent-gold);
+            box-shadow: inset 0 0 20px rgba(212, 165, 116, 0.05);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 165, 116, 0.4);
+        }
+
+        /* ===== CREDENTIALS BADGE ===== */
+        .credentials {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+
+        .credential-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(212, 165, 116, 0.05);
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .credential-item:hover {
+            background: rgba(212, 165, 116, 0.1);
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 15px rgba(212, 165, 116, 0.3);
+        }
+
+        .credential-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: var(--primary-dark);
+            font-weight: 700;
+            box-shadow: 0 0 15px rgba(212, 165, 116, 0.6);
+        }
+
+        /* ===== POSITIONING STATEMENT ===== */
+        .positioning {
+            background: rgba(20, 24, 41, 0.8);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        .positioning::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 15px rgba(212, 165, 116, 0.7);
+        }
+
+        .positioning::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 10px rgba(212, 165, 116, 0.4);
+        }
+
+        .positioning-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .positioning h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .positioning p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 0 10px rgba(212, 165, 116, 0.6);
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-gold), var(--text-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            margin: 1.5rem auto 0;
+            box-shadow: 0 0 10px rgba(212, 165, 116, 0.6);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(21, 24, 41, 0.6);
+            border: 1px solid var(--border-subtle);
+            padding: 2.5rem;
+            border-radius: 2px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 165, 116, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-8px);
+            background: rgba(21, 24, 41, 0.9);
+            box-shadow: 0 0 30px rgba(212, 165, 116, 0.3), inset 0 0 20px rgba(212, 165, 116, 0.05);
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(196, 30, 58, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) translateY(-100%);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%);
+            }
+        }
+
+        .service-card:hover .service-icon {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            box-shadow: 0 0 30px rgba(212, 165, 116, 0.6);
+            transform: scale(1.1) rotateZ(5deg);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-card a:hover {
+            gap: 1rem;
+            color: var(--accent-red);
+        }
+
+        /* ===== CAPABILITIES SECTION ===== */
+        .capabilities {
+            background: rgba(20, 24, 41, 0.6);
+            padding: 5rem 2rem;
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            position: relative;
+        }
+
+        .capabilities::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 15px rgba(212, 165, 116, 0.7);
+        }
+
+        .capabilities::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 10px rgba(212, 165, 116, 0.4);
+        }
+
+        .capabilities-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .capabilities h2 {
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .capability-item {
+            background: rgba(10, 14, 39, 0.5);
+            padding: 2rem;
+            border-left: 3px solid var(--accent-gold);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .capability-item:hover {
+            background: rgba(10, 14, 39, 0.8);
+            border-left-color: var(--accent-red);
+            transform: translateX(5px);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.2), inset 0 0 15px rgba(212, 165, 116, 0.05);
+        }
+
+        .capability-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .capability-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ===== WHY VIPS SECTION ===== */
+        .why-vips {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .why-vips h2 {
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .why-item {
+            position: relative;
+            padding: 2rem;
+            text-align: center;
+            background: rgba(21, 24, 41, 0.4);
+            border: 1px solid rgba(212, 165, 116, 0.1);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .why-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .why-item:hover {
+            background: rgba(21, 24, 41, 0.7);
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 30px rgba(212, 165, 116, 0.2), inset 0 0 20px rgba(212, 165, 116, 0.05);
+        }
+
+        .why-item:hover::before {
+            opacity: 1;
+        }
+
+        .why-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .why-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .why-item p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* ===== PROCESS SECTION ===== */
+        .process {
+            background: rgba(20, 24, 41, 0.6);
+            padding: 5rem 2rem;
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            position: relative;
+        }
+
+        .process::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 15px rgba(212, 165, 116, 0.7);
+        }
+
+        .process::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 10px rgba(212, 165, 116, 0.4);
+        }
+
+        .process-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .process h2 {
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            position: relative;
+        }
+
+        .process-step {
+            background: rgba(10, 14, 39, 0.5);
+            padding: 2rem;
+            border-radius: 2px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            border: 1px solid var(--border-subtle);
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            background: rgba(10, 14, 39, 0.8);
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 25px rgba(212, 165, 116, 0.3), inset 0 0 15px rgba(212, 165, 116, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 50%;
+            box-shadow: 0 0 25px rgba(196, 30, 58, 0.4);
+            position: relative;
+        }
+
+        .process-step:hover .step-number {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            box-shadow: 0 0 30px rgba(212, 165, 116, 0.6);
+            transform: scale(1.15);
+        }
+
+        .process-step h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .process-step p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 2px solid;
+            border-image: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent) 1;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: rgba(10, 14, 39, 0.95);
+            border-top: 1px solid var(--border-subtle);
+            padding: 4rem 2rem 2rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        .footer-section a, .footer-section p {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                text-align: center;
+                border-top: 1px solid var(--border-subtle);
+                padding-top: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-cta {
+                gap: 1rem;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+
+            .credentials {
+                gap: 1rem;
+                flex-direction: column;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">VIPS <span>PROTECTION</span></div>
+            <nav>
+                <a href="#services">Services</a>
+                <a href="#capabilities">Capabilities</a>
+                <a href="#process">Process</a>
+                <a href="#contact">About</a>
+                <button class="cta-button">Request Consultation</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discreet Executive Protection & <span class="highlight">Global Travel Security</span></h1>
+            <p class="subtitle">Intelligence-driven protection for high-profile individuals, corporate leaders, and families requiring a higher standard of security. Domestic and international operations.</p>
+            <div class="hero-cta">
+                <button class="btn-primary">Request Consultation</button>
+                <button class="btn-secondary">Learn More</button>
+            </div>
+            <div class="credentials">
+                <div class="credential-item">
+                    <div class="credential-icon">✓</div>
+                    <span>Veteran-Owned & Operated</span>
+                </div>
+                <div class="credential-item">
+                    <div class="credential-icon">✓</div>
+                    <span>Texas PSB License #C24076301</span>
+                </div>
+                <div class="credential-item">
+                    <div class="credential-icon">✓</div>
+                    <span>Law Enforcement Background</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POSITIONING STATEMENT -->
+    <section class="positioning">
+        <div class="positioning-content">
+            <h2>Your Protection Is Our Priority</h2>
+            <p>VIPS Personal Protection LLC delivers discreet, intelligence-driven protection services, specializing in executive travel security, advance operations, and tailored protection strategies for high-profile clients operating domestically and internationally.</p>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="services">
+        <div class="section-title">
+            <h2>Core Services</h2>
+            <p>Comprehensive protection across every dimension of executive and personal security</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🛫</div>
+                <h3>Travel Security & Advance Operations</h3>
+                <p>Full-spectrum travel protection with advance site surveys, route planning, venue assessments, and discreet logistics coordination for domestic and international movement.</p>
+                <a href="#contact">Learn More →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👔</div>
+                <h3>Executive Protection</h3>
+                <p>Close protection services for corporate leaders during business activities, public appearances, and daily operations, supported by intelligence and risk mitigation strategies.</p>
+                <a href="#contact">Learn More →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔐</div>
+                <h3>Personal Protection</h3>
+                <p>Low-profile protection for high-profile individuals, families, and public figures in corporate environments, private residences, and dynamic social settings.</p>
+                <a href="#contact">Learn More →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏢</div>
+                <h3>Protective Intelligence & Risk Mitigation</h3>
+                <p>Proactive threat assessments, vulnerability analysis, geopolitical monitoring, and customized security planning to anticipate and manage emerging risks.</p>
+                <a href="#contact">Learn More →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔍</div>
+                <h3>Private Investigations</h3>
+                <p>Trusted investigative services for fraud investigation, witness identification, background verification, and intelligence gathering for risk assessment.</p>
+                <a href="#contact">Learn More →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💼</div>
+                <h3>Corporate Security Consulting</h3>
+                <p>Strategic security assessments, threat analysis, and customized protection planning for corporate environments, facilities, and operations.</p>
+                <a href="#contact">Learn More →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAPABILITIES SECTION -->
+    <section class="capabilities" id="capabilities">
+        <div class="capabilities-content">
+            <h2>What Sets VIPS Apart</h2>
+            <div class="capabilities-grid">
+                <div class="capability-item">
+                    <h4>Advance Planning & Site Assessment</h4>
+                    <p>Detailed reconnaissance of routes, venues, and accommodations prior to engagement, ensuring seamless and secure movement.</p>
+                </div>
+                <div class="capability-item">
+                    <h4>Intelligence-Driven Operations</h4>
+                    <p>Real-time threat monitoring, geopolitical awareness, and proactive risk mitigation integrated into every operation.</p>
+                </div>
+                <div class="capability-item">
+                    <h4>Global Reach & Local Expertise</h4>
+                    <p>Domestic and international protection capabilities with liaison networks and law enforcement coordination worldwide.</p>
+                </div>
+                <div class="capability-item">
+                    <h4>Discreet & Professional</h4>
+                    <p>Low-profile operations that protect your safety without drawing unnecessary attention or disrupting normal activities.</p>
+                </div>
+                <div class="capability-item">
+                    <h4>Veteran Discipline & Precision</h4>
+                    <p>Military and law enforcement background ensures operational excellence, reliability, and adaptability in dynamic environments.</p>
+                </div>
+                <div class="capability-item">
+                    <h4>Customized Protection Strategy</h4>
+                    <p>Every client receives tailored security planning aligned with their unique risk profile, lifestyle, and operational requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY VIPS SECTION -->
+    <section class="why-vips">
+        <h2>Why Executive-Level Clients Choose VIPS</h2>
+        <div class="why-grid">
+            <div class="why-item">
+                <div class="why-number">1</div>
+                <h4>Operational Discipline</h4>
+                <p>Veteran-owned with law enforcement expertise ensures mission-focused security operations and accountability.</p>
+            </div>
+            <div class="why-item">
+                <div class="why-number">2</div>
+                <h4>Proactive Risk Management</h4>
+                <p>We don't just respond to threats—we anticipate and manage risk through intelligence and advance operations.</p>
+            </div>
+            <div class="why-item">
+                <div class="why-number">3</div>
+                <h4>Discreet Expertise</h4>
+                <p>Protection that maintains your professional image and personal privacy while delivering unwavering security.</p>
+            </div>
+            <div class="why-item">
+                <div class="why-number">4</div>
+                <h4>Global Capability</h4>
+                <p>Domestic and international reach with coordination capabilities across jurisdictions and continents.</p>
+            </div>
+            <div class="why-item">
+                <div class="why-number">5</div>
+                <h4>Executive Standard</h4>
+                <p>Customized solutions aligned to high-net-worth individuals, corporate leaders, and family office requirements.</p>
+            </div>
+            <div class="why-item">
+                <div class="why-number">6</div>
+                <h4>24/7 Response Capability</h4>
+                <p>Always-available protection operations with rapid deployment and continuous threat monitoring.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS SECTION -->
+    <section class="process" id="process">
+        <div class="process-content">
+            <h2>Our Consultation Process</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Initial Assessment</h4>
+                    <p>Confidential consultation to understand your risk profile, operational requirements, and protection objectives.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Threat Analysis</h4>
+                    <p>Comprehensive risk evaluation and vulnerability assessment specific to your circumstances and environment.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Customized Strategy</h4>
+                    <p>Tailored protection plan aligned to your unique needs, lifestyle, and operational movement patterns.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Implementation & Support</h4>
+                    <p>Seamless deployment with continuous monitoring, adjustment, and 24/7 support throughout engagement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section" id="contact">
+        <h2>Ready to Discuss Your Protection Needs?</h2>
+        <p>VIPS Personal Protection LLC provides confidential consultations for executives, high-net-worth individuals, and families. Contact us today to schedule a consultation with our protection specialists.</p>
+        <button class="btn-primary" style="padding: 1.2rem 3rem; font-size: 1.1rem;">Request Your Consultation</button>
+        <div style="margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid var(--border-subtle);">
+            <p style="margin: 0;">
+                <strong style="color: var(--accent-gold);">512-914-6433</strong> | 
+                <strong style="color: var(--accent-gold); margin-left: 1rem;">info@vipsprotection.com</strong>
+            </p>
+            <p style="margin-top: 1rem; font-size: 0.85rem;">
+                807 Brazos Street, Suite 702 | Austin, TX 78701<br>
+                Texas PSB License #C24076301
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>VIPS Protection</h4>
+                <p>Discreet executive protection and travel security for high-profile individuals, corporate leaders, and families.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <a href="#">Travel Security</a>
+                <a href="#">Executive Protection</a>
+                <a href="#">Personal Protection</a>
+                <a href="#">Protective Intelligence</a>
+                <a href="#">Corporate Consulting</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Phone: 512-914-6433</p>
+                <p>Email: info@vipsprotection.com</p>
+                <p>Address: 807 Brazos Street, Suite 702, Austin, TX 78701</p>
+            </div>
+            <div class="footer-section">
+                <h4>Credentials</h4>
+                <p>✓ Veteran-Owned & Operated</p>
+                <p>✓ Texas PSB License #C24076301</p>
+                <p>✓ Law Enforcement Background</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 VIPS Personal Protection LLC. All rights reserved. Discreet. Professional. Trusted.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
