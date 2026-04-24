@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Executive protection services including travel security, advance operations, protective intelligence, and corporate security consulting from VIPS Personal Protection LLC.">
+    <title>Services | VIPS Personal Protection LLC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #0a0e27;
+            --secondary-dark: #151829;
+            --accent-gold: #d4a574;
+            --accent-gold-light: #e8c89c;
+            --accent-red: #c41e3a;
+            --text-light: #e8e8e8;
+            --text-muted: #b0b0b0;
+            --border-subtle: #2a2e4a;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        .gold-shine {
+            background: linear-gradient(90deg, transparent, var(--accent-gold-light), var(--accent-gold), var(--accent-gold-light), transparent);
+            background-size: 1000px 100%;
+            animation: shimmer 3s infinite;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(10, 14, 39, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-subtle);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 0 30px rgba(212, 165, 116, 0.1);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 10px rgba(212, 165, 116, 0.5);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            color: var(--accent-gold);
+            position: relative;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light), var(--accent-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 8px rgba(212, 165, 116, 0.6));
+        }
+
+        .logo span {
+            color: var(--accent-red);
+            filter: drop-shadow(0 0 5px rgba(196, 30, 58, 0.4));
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-gold);
+        }
+
+        .cta-button {
+            background: var(--accent-red);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+
+        /* PAGE HEADER */
+        .page-header {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-subtle);
+            background: rgba(20, 24, 41, 0.5);
+            position: relative;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 10px rgba(212, 165, 116, 0.4);
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-gold), var(--text-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* SERVICE DETAIL SECTION */
+        .service-detail {
+            padding: 5rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-bottom: 1px solid var(--border-subtle);
+            position: relative;
+        }
+
+        .service-detail::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 15px rgba(212, 165, 116, 0.5);
+        }
+
+        .service-detail:last-of-type {
+            border-bottom: none;
+        }
+
+        .service-detail h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.02em;
+        }
+
+        .service-intro {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: rgba(196, 30, 58, 0.08);
+            border-left: 4px solid var(--accent-red);
+            box-shadow: inset 0 0 20px rgba(212, 165, 116, 0.05), 0 0 20px rgba(212, 165, 116, 0.1);
+        }
+
+        .service-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .service-text h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .service-text p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+
+        .service-features {
+            margin-top: 2rem;
+        }
+
+        .service-features h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-shadow: 0 0 10px rgba(212, 165, 116, 0.6);
+            animation: checkmark 0.5s ease forwards;
+        }
+
+        .feature-list li:hover {
+            color: var(--text-light);
+            padding-left: 2.5rem;
+        }
+
+        @keyframes checkmark {
+            from {
+                transform: scale(0) rotate(-45deg);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) rotate(0);
+                opacity: 1;
+            }
+        }
+
+        .service-highlight {
+            background: rgba(21, 24, 41, 0.8);
+            border: 1px solid var(--border-subtle);
+            border-left: 4px solid var(--accent-gold);
+            padding: 2.5rem;
+            border-radius: 2px;
+            box-shadow: inset 0 0 20px rgba(212, 165, 116, 0.08), 0 0 25px rgba(212, 165, 116, 0.15);
+        }
+
+        .service-highlight h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .highlight-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-item strong {
+            color: var(--accent-gold);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* CALL-TO-ACTION */
+        .cta-inline {
+            margin-top: 2.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
+            color: white;
+            border-radius: 2px;
+            text-align: center;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 25px rgba(196, 30, 58, 0.3);
+            letter-spacing: 0.05em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-inline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-inline:hover {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(212, 165, 116, 0.4);
+        }
+
+        .cta-inline:hover::before {
+            left: 100%;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .service-content {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .service-detail h2 {
+                font-size: 1.8rem;
+            }
+
+            .service-intro {
+                font-size: 1rem;
+                padding: 1.5rem;
+            }
+        }
+
+        /* FOOTER */
+        footer {
+            background: rgba(10, 14, 39, 0.95);
+            border-top: 1px solid var(--border-subtle);
+            padding: 4rem 2rem 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        .footer-section a, .footer-section p {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">VIPS <span>PROTECTION</span></div>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/services">Services</a>
+                <a href="#contact">About</a>
+                <button class="cta-button">Request Consultation</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <h1>Professional Protection Services</h1>
+        <p>Comprehensive security solutions designed for executive-level clients, high-net-worth individuals, and organizations requiring discreet, intelligence-driven protection.</p>
+    </section>
+
+    <!-- SERVICE 1: TRAVEL SECURITY & ADVANCE OPERATIONS -->
+    <section class="service-detail">
+        <h2>🛫 Travel Security & Advance Operations</h2>
+        <div class="service-intro">
+            <strong>The Premier Service for Executive Movement</strong><br>
+            VIPS specializes in protecting clients during movement—where risk is often highest. Our full-spectrum travel security services ensure seamless, secure mobility across domestic and international boundaries through advance planning, site reconnaissance, and discreet logistics coordination.
+        </div>
+        <div class="service-content">
+            <div class="service-text">
+                <h3>Comprehensive Travel Protection</h3>
+                <p>We understand that executive movement creates vulnerability. Our advance operations team conducts meticulous planning before any travel, ensuring every detail is managed with precision and discretion.</p>
+                
+                <div class="service-features">
+                    <h4>What's Included:</h4>
+                    <ul class="feature-list">
+                        <li>Advance site surveys & venue assessments</li>
+                        <li>Route planning with contingency mapping</li>
+                        <li>Secure transportation coordination</li>
+                        <li>Hotel & accommodation security reviews</li>
+                        <li>Domestic and international travel protection</li>
+                        <li>Real-time threat monitoring & updates</li>
+                        <li>Liaison with local law enforcement & emergency services</li>
+                        <li>Post-travel documentation & analysis</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-highlight">
+                <h4>Advance Operations Process</h4>
+                <div class="highlight-item">
+                    <strong>Pre-Travel Intelligence</strong>
+                    <p>Geopolitical assessments, local threat analysis, and custom briefings specific to your destination and circumstances.</p>
+                </div>
+                <div class="highlight-item">
+                    <strong>Site Reconnaissance</strong>
+                    <p>On-ground advance teams evaluate hotels, venues, routes, and potential vulnerabilities before your arrival.</p>
+                </div>
+                <div class="highlight-item">
+                    <strong>Movement Logistics</strong>
+                    <p>Transportation coordination, timing optimization, and emergency protocols ensure seamless, secure transitions between locations.</p>
+                </div>
+                <div class="highlight-item">
+                    <strong>Continuous Monitoring</strong>
+                    <p>Real-time threat awareness, environmental monitoring, and rapid response capability throughout your travel period.</p>
+                </div>
+            </div>
+        </div>
+        <button class="cta-inline">Discuss Your Travel Security Needs</button>
+    </section>
+
+    <!-- SERVICE 2: EXECUTIVE PROTECTION -->
+    <section class="service-detail">
+        <h2>👔 Executive Protection</h2>
+        <div class="service-intro">
+            <strong>Discreet Protection for Corporate Leaders</strong><br>
+            We provide comprehensive executive protection that extends beyond physical presence. Our approach integrates advance planning, risk mitigation, and intelligence-driven operations to ensure corporate leaders can operate confidently in any environment.
+        </div>
+        <div class="service-content">
+            <div class="service-text">
+                <h3>Close Protection with Strategic Planning</h3>
+                <p>Corporate leaders require protection that maintains professional credibility while managing genuine security risks. Our agents operate seamlessly in corporate environments, providing low-profile, professional protection aligned to your lifestyle and risk level.</p>
+                
+                <div class="service-features">
+                    <h4>Executive Protection Covers:</h4>
+                    <ul class="feature-list">
+                        <li>Business travel & conference attendance</li>
+                        <li>Public appearances & speaking engagements</li>
+                        <li>Daily routines & commute security</li>
+                        <li>Private residences & estate protection</li>
+                        <li>Event security & attendance coverage</li>
+                        <li>Family member protection</li>
+                        <li>Advance planning for high-visibility activities</li>
+                        <li>Threat assessment & vulnerability analysis</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-highlight">
+                <h4>Why Executive Protection Matters</h4>
+                <div class="highlight-item">
+                    <strong>Low-Profile Operations</strong>
+                    <p>Protection that doesn't disrupt your professional image or draw unnecessary attention—seamless in business contexts.</p>
+                </div>
+                <div class="highlight-item">
+                    <strong>Risk Intelligence</strong>
+                    <p>Ongoing threat assessment and situational awareness integrated into daily operations for proactive risk management.</p>
+                </div>
+                <div class="highlight-item">
+                    <strong>Customized Strategy</strong>
+                    <p>Each protection plan is tailored to your unique risk profile, schedule, and operational requirements—not one-size-fits-all.</p>
+                </div>
+                <div class="highlight-item">
+                    <strong>24/7 Availability</strong>
+                    <p>Rapid response capability and continuous protection during high-risk periods or extended operations.</p>
+                </div>
+            </div>
+        </div>
+        <button class="cta-inline">Schedule an Executive Protection Consultation</button>
+    </section>
+
+    <!-- SERVICE 3: PERSONAL PROTECTION -->
+    <section class="service-detail">
+        <h2>🔐 Personal Protection</h2>
+        <div class="service-intro">
+            <strong>Discreet Protection for High-Profile Individuals & Families</strong><br>
+            We provide professional close protection services for celebrities, entertainers, athletes, high-net-worth individuals, and their families requiring security in diverse environments.
+        </div>
+        <div class="service-content">
+            <div class="service-text">
+                <h3>Lifestyle-Aligned Security</h3>
+                <p>Personal protection requires understanding your lifestyle, social obligations, and privacy preferences. Our agents are trained to operate seamlessly in social settings while maintaining unwavering security awareness.</p>
+                
+                <div class="service-features">
+                    <h4>Personal Protection Services:</h4>
+                    <ul class="feature-list">
+                        <li>High-profile individual & celebrity protection</li>
+                        <li>Athlete & entertainment figure security</li>
+                        <li>Family protection & dependent safety</li>
+                        <li>Social event & entertainment venue security</li>
+                        <li>Private residence & estate protection</li>
+                        <li>Discretion in high-visibility settings</li>
+                        <li>Rapid threat response protocols</li>
+                        <li>Ongoing risk mitigation planning</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-highlight">
+                <h4>Our Personal Protection Advantage</h4>
+                <div class="highlight-item">
+                    <strong>Professional Discretion</strong>
+                    <p>Trained to blend into social contexts while maintaining heightened security awareness and rapid response capability.</p>
+                </div>
+                <div class="highlight-item">
+                    <strong>Lifestyle Integration</strong>
+                    <p>Protection that respects your social obligations, relationships, and personal preferences without intrusion.</p>
+                </div>
+                <div class="highlight-item">
+                    <strong>Family-Oriented</strong>
+                    <p>Extended protection for family members, dependents, and close associates when security risks apply.</p>
+                </div>
+                <div class="highlight-item">
+                    <strong>Adaptable Operations</strong>
+                    <p>Flexible protection models that adjust to changing schedules, locations, and operational environments.</p>
+                </div>
+            </div>
+        </div>
+        <button class="cta-inline">Request Personal Protection Services</button>
+    </section>
+
+    <!-- SERVICE 4: PROTECTIVE INTELLIGENCE & RISK MITIGATION -->
+    <section class="service-detail">
+        <h2>🔍 Protective Intelligence & Risk Mitigation</h2>
+        <div class="service-intro">
+            <strong>Proactive Risk Management Through Intelligence</strong><br>
+            Effective protection starts with information. We integrate real-time threat monitoring, vulnerability analysis, and customized security planning to anticipate and manage emerging risks before they escalate.
+        </div>
+        <div class="service-content">
+            <div class="service-text">
+                <h3>Intelligence-Driven Security Operations</h3>
+                <p>Rather than reactive response, we provide proactive risk management through comprehensive threat assessment, ongoing monitoring, and strategic security planning tailored to your specific circumstances and operating environment.</p>
+                
+                <div class="service-features">
+                    <h4>Intelligence & Risk Services:</h4>
+                    <ul class="feature-list">
+                        <li>Comprehensive threat assessments</li>
+                        <li>Vulnerability analysis & gap identification</li>
+                        <li>Pre-travel intelligence briefings</li>
+                        <li>Geopolitical & localized risk monitoring</li>
+                        <li>Ongoing situational awareness</li>
+                        <li>Customized security planning</li>
+                        <li>Executive security briefings</li>
+                        <li>Risk mitigation strategy development</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-highlight">
+                <h4>Intelligence-Driven Approach</h4>
+                <div class="highlight-item">
+                    <strong>Threat Assessment</strong>
+                    <p>Detailed analysis of potential threats specific to your profile, activities, and operating environment.</p>
+                </div>
+                <div class="highlight-item">
+                    <strong>Vulnerability Analysis</strong>
+                    <p>Systematic identification of security gaps in your operations, facilities, and travel patterns.</p>
+                </div>
+                <div class="highlight-item">
+                    <strong>Real-Time Monitoring</strong>
+                    <p>Continuous geopolitical awareness and emerging risk identification across your areas of operation.</p>
+                </div>
+                <div class="highlight-item">
+                    <strong>Strategic Planning</strong>
+                    <p>Customized security strategies that address identified risks while supporting your operational objectives.</p>
+                </div>
+            </div>
+        </div>
+        <button class="cta-inline">Schedule a Risk Assessment</button>
+    </section>
+
+    <!-- SERVICE 5: CORPORATE SECURITY CONSULTING -->
+    <section class="service-detail">
+        <h2>💼 Corporate Security Consulting</h2>
+        <div class="service-intro">
+            <strong>Strategic Security Planning for Business Operations</strong><br>
+            VIPS provides solution-oriented security consulting for corporate environments, facilities, and operations. We assess risks and develop customized protection strategies aligned with your business objectives.
+        </div>
+        <div class="service-content">
+            <div class="service-text">
+                <h3>Business-Focused Security Solutions</h3>
+                <p>Corporate security extends beyond individual protection to facility security, employee safety, and operational continuity. Our consulting approach identifies vulnerabilities and implements practical, cost-effective security measures.</p>
+                
+                <div class="service-features">
+                    <h4>Corporate Consulting Services:</h4>
+                    <ul class="feature-list">
+                        <li>Corporate facility risk assessments</li>
+                        <li>Executive suite & C-suite protection planning</li>
+                        <li>Employee safety protocols & training</li>
+                        <li>Facility access control & monitoring</li>
+                        <li>Business continuity & emergency planning</li>
+                        <li>Security policy development</li>
+                        <li>Vendor & contract security management</li>
+                        <li>Compliance & regulatory alignment</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-highlight">
+                <h4>Corporate Security Planning</h4>
+                <div class="highlight-item">
+                    <strong>Facility Assessment</strong>
+                    <p>Comprehensive evaluation of physical security, access control, and vulnerability to theft, trespass, or operational disruption.</p>
+                </div>
+                <div class="highlight-item">
+                    <strong>Executive Protection Integration</strong>
+                    <p>Security planning that integrates individual executive protection with broader organizational security strategies.</p>
+                </div>
+                <div class="highlight-item">
+                    <strong>Employee Safety Programs</strong>
+                    <p>Training, protocols, and systems that enhance employee safety and security awareness across your organization.</p>
+                </div>
+                <div class="highlight-item">
+                    <strong>Customized Implementation</strong>
+                    <p>Practical security solutions that address identified risks while supporting operational efficiency and business objectives.</p>
+                </div>
+            </div>
+        </div>
+        <button class="cta-inline">Request Corporate Security Consultation</button>
+    </section>
+
+    <!-- SERVICE 6: PRIVATE INVESTIGATIONS -->
+    <section class="service-detail">
+        <h2>🔎 Private Investigations</h2>
+        <div class="service-intro">
+            <strong>Trusted Investigative Services for Risk Mitigation</strong><br>
+            VIPS provides reliable investigative services in fraud, background verification, witness identification, and intelligence gathering to support your security and business objectives.
+        </div>
+        <div class="service-content">
+            <div class="service-text">
+                <h3>Professional Investigation & Verification</h3>
+                <p>Effective protection often requires intelligence beyond public sources. Our investigative services support threat assessment, due diligence, and risk mitigation through reliable, ethical investigation practices.</p>
+                
+                <div class="service-features">
+                    <h4>Investigation Services Include:</h4>
+                    <ul class="feature-list">
+                        <li>Background checks & due diligence</li>
+                        <li>Fraud investigation & documentation</li>
+                        <li>Witness identification & interviews</li>
+                        <li>Asset investigation & verification</li>
+                        <li>Employment verification</li>
+                        <li>Litigation support & evidence gathering</li>
+                        <li>Corporate security investigations</li>
+                        <li>Confidential threat assessment</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-highlight">
+                <h4>Investigation Standards</h4>
+                <div class="highlight-item">
+                    <strong>Professional Ethics</strong>
+                    <p>All investigations conducted with full compliance to legal requirements, confidentiality, and ethical standards.</p>
+                </div>
+                <div class="highlight-item">
+                    <strong>Documentation & Reporting</strong>
+                    <p>Professional reports with findings, analysis, and recommendations for your protection or business decisions.</p>
+                </div>
+                <div class="highlight-item">
+                    <strong>Confidentiality</strong>
+                    <p>All investigation details remain strictly confidential and protected to safeguard your privacy and business interests.</p>
+                </div>
+                <div class="highlight-item">
+                    <strong>Reliable Intelligence</strong>
+                    <p>Verified, documented findings that support your security decisions and risk mitigation efforts.</p>
+                </div>
+            </div>
+        </div>
+        <button class="cta-inline">Request Investigation Services</button>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section style="padding: 5rem 2rem; text-align: center; border-top: 1px solid var(--border-subtle);">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; font-weight: 700;">Need a Custom Protection Solution?</h2>
+        <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">VIPS provides confidential consultations for any protection scenario. Our specialists are available to discuss your unique security requirements and develop a customized protection strategy.</p>
+        <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+            <button class="cta-button" style="padding: 1.2rem 2rem; cursor: pointer;">Request Consultation</button>
+            <div style="padding: 1rem; border: 1px solid var(--border-subtle); border-radius: 2px; background: rgba(21, 24, 41, 0.5);">
+                <p style="margin: 0.5rem 0; font-weight: 600;">
+                    <span style="color: var(--accent-gold);">512-914-6433</span>
+                </p>
+                <p style="margin: 0.5rem 0; font-size: 0.9rem; color: var(--text-muted);">
+                    info@vipsprotection.com
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>VIPS Protection</h4>
+                <p>Discreet executive protection and travel security for high-profile individuals, corporate leaders, and families.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <a href="#">Travel Security</a>
+                <a href="#">Executive Protection</a>
+                <a href="#">Personal Protection</a>
+                <a href="#">Protective Intelligence</a>
+                <a href="#">Corporate Consulting</a>
+                <a href="#">Investigations</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Phone: 512-914-6433</p>
+                <p>Email: info@vipsprotection.com</p>
+                <p>Address: 807 Brazos Street, Suite 702, Austin, TX 78701</p>
+            </div>
+            <div class="footer-section">
+                <h4>Credentials</h4>
+                <p>✓ Veteran-Owned & Operated</p>
+                <p>✓ Texas PSB License #C24076301</p>
+                <p>✓ Law Enforcement Background</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 VIPS Personal Protection LLC. All rights reserved. Discreet. Professional. Trusted.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
