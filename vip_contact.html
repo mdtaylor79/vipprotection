@@ -1,17 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Request a confidential consultation with VIPS Personal Protection LLC. Discuss your executive protection and security needs with our specialists.">
-    <title>Request Consultation | VIPS Personal Protection LLC</title>
+    <meta name="description" content="Contact VIPS Personal Protection LLC. Get in touch with our protection specialists. Phone: 512-914-6433. Located in Austin, TX.">
+    <title>Contact Us | VIPS Personal Protection LLC</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary-dark: #0a0e27;
             --secondary-dark: #151829;
@@ -22,17 +18,14 @@
             --text-muted: #b0b0b0;
             --border-subtle: #2a2e4a;
         }
-
         html { scroll-behavior: smooth; }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
             color: var(--text-light);
             line-height: 1.6;
+            overflow-x: hidden;
         }
-
-        /* HEADER */
         header {
             background: rgba(10, 14, 39, 0.98);
             backdrop-filter: blur(10px);
@@ -43,7 +36,6 @@
             padding: 1rem 0;
             box-shadow: 0 0 30px rgba(212, 165, 116, 0.1);
         }
-
         header::before {
             content: '';
             position: absolute;
@@ -54,7 +46,6 @@
             background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
             box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
         }
-
         .header-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -62,8 +53,22 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 2rem;
         }
-
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .logo-section:hover { transform: translateY(-2px); }
+        .logo-img {
+            height: 60px;
+            width: auto;
+            filter: drop-shadow(0 0 10px rgba(212, 165, 116, 0.4));
+        }
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
@@ -74,283 +79,203 @@
             -webkit-text-fill-color: transparent;
             filter: drop-shadow(0 0 8px rgba(212, 165, 116, 0.6));
         }
-
-        .logo span {
-            color: var(--accent-red);
-            filter: drop-shadow(0 0 5px rgba(196, 30, 58, 0.4));
-        }
-
+        .logo span { color: var(--accent-red); }
         nav {
             display: flex;
             gap: 2.5rem;
             align-items: center;
+            flex-wrap: wrap;
         }
-
-        nav a {
+        nav > a {
             color: var(--text-light);
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
         }
-
-        nav a:hover {
+        nav > a:hover { color: var(--accent-gold); }
+        .nav-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .nav-item > a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .nav-item > a:hover { color: var(--accent-gold); }
+        .submenu-toggle {
             color: var(--accent-gold);
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
         }
-
-        /* PAGE HEADER */
+        .nav-item:hover .submenu-toggle { transform: rotate(180deg); }
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(10, 14, 39, 0.98);
+            border: 1px solid var(--border-subtle);
+            border-top: 2px solid var(--accent-gold);
+            border-radius: 2px;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            margin-top: 1rem;
+        }
+        .nav-item:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .submenu a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+            font-size: 0.9rem;
+        }
+        .submenu a:hover {
+            background: rgba(212, 165, 116, 0.1);
+            color: var(--accent-gold);
+            border-left-color: var(--accent-gold);
+            padding-left: 1.8rem;
+        }
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(196, 30, 58, 0.3);
+        }
+        .cta-button:hover {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
+        }
         .page-header {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
             padding: 4rem 2rem;
-            text-align: center;
             border-bottom: 2px solid;
             border-image: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent) 1;
-            background: rgba(20, 24, 41, 0.5);
-            position: relative;
         }
-
         .page-header::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
-            box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(196, 30, 58, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(212, 165, 116, 0.1) 0%, transparent 50%);
+            pointer-events: none;
         }
-
+        .page-header-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
         .page-header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: clamp(2rem, 6vw, 3.5rem);
             font-weight: 700;
-            background: linear-gradient(135deg, var(--accent-gold), var(--text-light));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .page-header p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* MAIN CONTENT */
-        .content-wrapper {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
-
-        .consultation-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 4rem;
-        }
-
-        /* CONSULTATION OPTIONS */
-        .consultation-options {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .consultation-option {
-            background: rgba(21, 24, 41, 0.6);
-            border: 1px solid rgba(212, 165, 116, 0.2);
-            padding: 2rem;
-            border-radius: 2px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .consultation-option:hover {
-            border-color: var(--accent-gold);
-            background: rgba(21, 24, 41, 0.9);
-            box-shadow: 0 0 25px rgba(212, 165, 116, 0.2);
-        }
-
-        .option-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .option-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--accent-gold);
-        }
-
-        .option-description {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* CONTACT FORM */
-        .contact-form {
-            background: rgba(21, 24, 41, 0.8);
-            border: 1px solid var(--border-subtle);
-            border-left: 4px solid var(--accent-gold);
-            padding: 2.5rem;
-            border-radius: 2px;
-            box-shadow: inset 0 0 20px rgba(212, 165, 116, 0.08), 0 0 25px rgba(212, 165, 116, 0.15);
-        }
-
-        .form-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--accent-gold);
-        }
-
-        .form-group {
+            line-height: 1.2;
             margin-bottom: 1.5rem;
         }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--text-light);
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.85rem;
-            background: rgba(10, 14, 39, 0.6);
-            border: 1px solid var(--border-subtle);
-            color: var(--text-light);
-            border-radius: 2px;
-            font-family: inherit;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--accent-gold);
-            background: rgba(10, 14, 39, 0.9);
-            box-shadow: 0 0 15px rgba(212, 165, 116, 0.3);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .form-group select {
-            cursor: pointer;
-        }
-
-        .form-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .btn-submit {
-            flex: 1;
-            padding: 1rem;
-            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
-            color: white;
-            border: none;
-            border-radius: 2px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(196, 30, 58, 0.3);
-            letter-spacing: 0.05em;
-        }
-
-        .btn-submit:hover {
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
-            color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 15px 35px rgba(212, 165, 116, 0.4);
-        }
-
-        .btn-reset {
-            padding: 1rem 1.5rem;
-            background: transparent;
-            color: var(--accent-gold);
-            border: 2px solid var(--accent-gold);
-            border-radius: 2px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-reset:hover {
-            background: var(--accent-gold);
-            color: var(--primary-dark);
-        }
-
-        /* CONTACT INFORMATION */
-        .contact-info-section {
-            background: rgba(20, 24, 41, 0.5);
-            border-top: 2px solid;
-            border-image: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent) 1;
-            padding: 4rem 2rem;
-            margin-top: 4rem;
-        }
-
-        .info-grid {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .info-card {
-            background: rgba(21, 24, 41, 0.6);
-            border: 1px solid var(--border-subtle);
-            padding: 2rem;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .info-card:hover {
-            border-color: var(--accent-gold);
-            box-shadow: 0 0 20px rgba(212, 165, 116, 0.2);
-        }
-
-        .info-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .info-card h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--accent-gold);
-        }
-
-        .info-card p {
+        .page-header h1 .highlight { color: var(--accent-gold); }
+        .page-header .subtitle {
+            font-size: 1.1rem;
             color: var(--text-muted);
+            margin-bottom: 0;
             line-height: 1.8;
         }
-
-        /* FOOTER */
+        .breadcrumb {
+            padding: 1rem 2rem;
+            background: rgba(20, 24, 41, 0.5);
+            text-align: center;
+            border-bottom: 1px solid var(--border-subtle);
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .breadcrumb a:hover { color: var(--accent-red); }
+        .content-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .contact-card {
+            background: rgba(21, 24, 41, 0.6);
+            border: 1px solid var(--border-subtle);
+            border-left: 3px solid var(--accent-gold);
+            padding: 2.5rem;
+            border-radius: 2px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .contact-card:hover {
+            background: rgba(21, 24, 41, 0.9);
+            box-shadow: 0 0 30px rgba(212, 165, 116, 0.3);
+        }
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .contact-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+        .contact-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        .contact-card a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact-card a:hover { color: var(--accent-red); }
         footer {
             background: rgba(10, 14, 39, 0.95);
-            border-top: 2px solid;
-            border-image: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent) 1;
+            border-top: 1px solid var(--border-subtle);
             padding: 4rem 2rem 2rem;
             margin-top: 3rem;
             position: relative;
         }
-
         footer::before {
             content: '';
             position: absolute;
@@ -361,7 +286,6 @@
             background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
             box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
         }
-
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -370,25 +294,20 @@
             gap: 2.5rem;
             margin-bottom: 3rem;
         }
-
         .footer-section h4 {
             font-size: 1.1rem;
             margin-bottom: 1.5rem;
             font-weight: 700;
             color: var(--accent-gold);
         }
-
-        .footer-section p, .footer-section a {
+        .footer-section a, .footer-section p {
             color: var(--text-muted);
+            text-decoration: none;
             font-size: 0.9rem;
             margin-bottom: 0.8rem;
-            text-decoration: none;
+            transition: color 0.3s ease;
         }
-
-        .footer-section a:hover {
-            color: var(--accent-gold);
-        }
-
+        .footer-section a:hover { color: var(--accent-gold); }
         .footer-bottom {
             border-top: 1px solid var(--border-subtle);
             padding-top: 2rem;
@@ -396,210 +315,122 @@
             color: var(--text-muted);
             font-size: 0.85rem;
         }
-
-        /* CONFIDENTIALITY NOTE */
-        .confidentiality-note {
-            background: rgba(196, 30, 58, 0.08);
-            border-left: 4px solid var(--accent-red);
-            padding: 1.5rem;
-            border-radius: 2px;
-            margin-bottom: 2rem;
-            font-size: 0.9rem;
-            color: var(--text-muted);
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .page-header h1 {
-                font-size: 2.2rem;
-            }
-
-            .consultation-grid {
-                grid-template-columns: 1fr;
-            }
-
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
+            .header-container { flex-direction: column; gap: 1rem; }
+            .logo-section { justify-content: center; width: 100%; }
+            nav { flex-direction: column; gap: 1rem; width: 100%; text-align: center; border-top: 1px solid var(--border-subtle); padding-top: 1rem; }
+            .page-header h1 { font-size: 1.8rem; }
+            .contact-info { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-
-    <!-- HEADER -->
     <header>
         <div class="header-container">
-            <div class="logo">VIPS <span>PROTECTION</span></div>
+            <a href="index.html" class="logo-section">
+                <img src="logo.png" alt="VIPS Protection Logo" class="logo-img">
+                <span class="logo">VIPS <span>PROTECTION</span></span>
+            </a>
             <nav>
-                <a href="/">Home</a>
-                <a href="/services">Services</a>
-                <a href="/about">About</a>
-                <button style="background: linear-gradient(135deg, var(--accent-red), #e53d4f); color: white; padding: 0.75rem 1.5rem; border-radius: 2px; font-weight: 600; cursor: pointer; border: none; transition: all 0.3s ease; box-shadow: 0 0 15px rgba(196, 30, 58, 0.3);">Request Consultation</button>
+                <div class="nav-item">
+                    <a href="vip_services.html">Services</a>
+                    <span class="submenu-toggle">▼</span>
+                    <div class="submenu">
+                        <a href="vip_services.html">All Services</a>
+                        <a href="vip_primary_services.html">Primary Services</a>
+                        <a href="vip_surveillance.html">Surveillance Equipment</a>
+                    </div>
+                </div>
+                <a href="vip_about.html">About</a>
+                <div class="nav-item">
+                    <a href="vip_contact.html">Contact</a>
+                    <span class="submenu-toggle">▼</span>
+                    <div class="submenu">
+                        <a href="vip_contact.html">Contact VIPS</a>
+                        <a href="vip_bookings.html">Bookings</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="vip_employment_forms.html">Employment</a>
+                    <span class="submenu-toggle">▼</span>
+                    <div class="submenu">
+                        <a href="vip_employment_forms.html">Employment Forms</a>
+                        <a href="#applications">Applications</a>
+                    </div>
+                </div>
+                <button class="cta-button" onclick="location.href='vip_bookings.html'">Request Consultation</button>
             </nav>
         </div>
     </header>
 
-    <!-- PAGE HEADER -->
-    <section class="page-header">
-        <h1>Request a Consultation</h1>
-        <p>Discuss your executive protection and security needs with our specialists. All inquiries are handled with complete confidentiality.</p>
-    </section>
-
-    <!-- MAIN CONTENT -->
-    <div class="content-wrapper">
-        <div class="confidentiality-note">
-            <strong>✓ Confidential & Secure</strong> — All consultation requests and information provided are handled with complete discretion and confidentiality. Your privacy is our priority.
-        </div>
-
-        <div class="consultation-grid">
-            <!-- CONSULTATION OPTIONS -->
-            <div class="consultation-options">
-                <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 700;">Consultation Options</h2>
-                
-                <div class="consultation-option">
-                    <div class="option-icon">☎️</div>
-                    <div class="option-title">Phone Consultation</div>
-                    <div class="option-description">Discuss your protection needs by phone with a VIPS specialist. Confidential and immediate.</div>
-                </div>
-
-                <div class="consultation-option">
-                    <div class="option-icon">🏢</div>
-                    <div class="option-title">In-Person Meeting</div>
-                    <div class="option-description">Meet at our Austin office or a location of your choice for a detailed security assessment and strategy discussion.</div>
-                </div>
-
-                <div class="consultation-option">
-                    <div class="option-icon">💻</div>
-                    <div class="option-title">Video Consultation</div>
-                    <div class="option-description">Secure virtual meeting for executives and clients in other locations. Private, encrypted, and confidential.</div>
-                </div>
-
-                <div class="consultation-option">
-                    <div class="option-icon">📧</div>
-                    <div class="option-title">Email Inquiry</div>
-                    <div class="option-description">Submit preliminary information about your protection needs. We'll respond within 24 business hours.</div>
-                </div>
-            </div>
-
-            <!-- CONSULTATION FORM -->
-            <form class="contact-form" method="POST" action="#">
-                <h3 class="form-title">Your Information</h3>
-
-                <div class="form-group">
-                    <label for="name">Full Name *</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="title">Title/Position</label>
-                    <input type="text" id="title" name="title" placeholder="e.g., Chief Executive Officer">
-                </div>
-
-                <div class="form-group">
-                    <label for="company">Company/Organization</label>
-                    <input type="text" id="company" name="company">
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Phone Number *</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="service">Primary Interest *</label>
-                    <select id="service" name="service" required>
-                        <option value="">-- Select Service --</option>
-                        <option value="travel-security">Travel Security & Advance Operations</option>
-                        <option value="executive-protection">Executive Protection</option>
-                        <option value="personal-protection">Personal Protection</option>
-                        <option value="protective-intelligence">Protective Intelligence & Risk Mitigation</option>
-                        <option value="corporate-consulting">Corporate Security Consulting</option>
-                        <option value="investigations">Private Investigations</option>
-                        <option value="other">Other / General Inquiry</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="consultation-type">Preferred Consultation Method *</label>
-                    <select id="consultation-type" name="consultation-type" required>
-                        <option value="">-- Select Method --</option>
-                        <option value="phone">Phone Consultation</option>
-                        <option value="in-person">In-Person Meeting</option>
-                        <option value="video">Video Consultation</option>
-                        <option value="email">Email Inquiry</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="details">Tell Us About Your Protection Needs</label>
-                    <textarea id="details" name="details" placeholder="Provide details about your situation, protection requirements, timeline, or any specific concerns..."></textarea>
-                </div>
-
-                <div class="form-buttons">
-                    <button type="submit" class="btn-submit">Request Consultation</button>
-                    <button type="reset" class="btn-reset">Clear Form</button>
-                </div>
-            </form>
-        </div>
+    <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <span>Contact</span>
     </div>
 
-    <!-- CONTACT INFORMATION -->
-    <section class="contact-info-section">
-        <h2 style="font-size: 2.2rem; font-weight: 700; text-align: center; margin-bottom: 3rem; background: linear-gradient(135deg, var(--accent-gold), var(--text-light)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Direct Contact Information</h2>
-        
-        <div class="info-grid">
-            <div class="info-card">
-                <div class="info-icon">📞</div>
-                <h3>Phone</h3>
-                <p><strong style="color: var(--accent-gold);">512-914-6433</strong></p>
-                <p style="margin-top: 0.5rem;">Monday - Friday: 8:00 AM - 6:00 PM CT<br>Emergencies: 24/7 Available</p>
-            </div>
-
-            <div class="info-card">
-                <div class="info-icon">📧</div>
-                <h3>Email</h3>
-                <p><strong style="color: var(--accent-gold);">info@vipsprotection.com</strong></p>
-                <p style="margin-top: 0.5rem;">Responses within 24 business hours. All inquiries handled confidentially.</p>
-            </div>
-
-            <div class="info-card">
-                <div class="info-icon">📍</div>
-                <h3>Office Location</h3>
-                <p><strong>VIPS Personal Protection LLC</strong><br>807 Brazos Street, Suite 702<br>Austin, TX 78701</p>
-                <p style="margin-top: 0.5rem;">Texas PSB License #C24076301</p>
-            </div>
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1>Get in <span class="highlight">Touch</span></h1>
+            <p class="subtitle">Contact VIPS Personal Protection for inquiries and consultation scheduling</p>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <section class="content-section">
+        <div class="contact-info">
+            <div class="contact-card">
+                <div class="contact-icon">📞</div>
+                <h3>Phone</h3>
+                <p><a href="tel:512-914-6433">512-914-6433</a></p>
+                <p style="margin-top: 1rem; font-size: 0.85rem;">Monday - Friday, 8 AM - 6 PM CST</p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <h3>Email</h3>
+                <p><a href="mailto:info@vipsprotection.com">info@vipsprotection.com</a></p>
+                <p style="margin-top: 1rem; font-size: 0.85rem;">Response within 24 hours</p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">📍</div>
+                <h3>Location</h3>
+                <p>807 Brazos Street, Suite 702<br>Austin, TX 78701</p>
+                <p style="margin-top: 1rem; font-size: 0.85rem;">Texas PSB License #C24076301</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <h2 style="font-size: 2rem; margin-bottom: 1.5rem; background: linear-gradient(135deg, var(--accent-gold), var(--text-light)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Ready to Schedule a Consultation?</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 1.05rem;">Click below to book your confidential consultation with our protection specialists.</p>
+            <button class="cta-button" onclick="location.href='vip_bookings.html'" style="padding: 1.2rem 3rem; font-size: 1rem;">Book Your Consultation</button>
+        </div>
+    </section>
+
     <footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h4>VIPS Protection</h4>
-                <p>Discreet executive protection and travel security for high-profile individuals, corporate leaders, and families.</p>
+                <p>Discreet executive protection and security services for high-profile individuals, corporate leaders, and families.</p>
             </div>
             <div class="footer-section">
                 <h4>Services</h4>
-                <a href="#">Travel Security</a>
-                <a href="#">Executive Protection</a>
-                <a href="#">Personal Protection</a>
-                <a href="#">Protective Intelligence</a>
-                <a href="#">Corporate Consulting</a>
+                <a href="vip_services.html">All Services</a>
+                <a href="vip_primary_services.html">Primary Services</a>
+                <a href="vip_surveillance.html">Surveillance Equipment</a>
+                <a href="vip_bookings.html">Book Consultation</a>
             </div>
             <div class="footer-section">
                 <h4>Company</h4>
-                <a href="#">About Us</a>
-                <a href="#">Our Values</a>
-                <a href="#">Contact</a>
+                <a href="vip_about.html">About Us</a>
+                <a href="vip_faq.html">FAQ</a>
+                <a href="vip_contact.html">Contact</a>
+                <a href="#">Terms & Conditions</a>
             </div>
             <div class="footer-section">
-                <h4>Contact</h4>
+                <h4>Contact Info</h4>
                 <p>Phone: 512-914-6433</p>
                 <p>Email: info@vipsprotection.com</p>
                 <p>Address: 807 Brazos Street, Suite 702, Austin, TX 78701</p>
@@ -609,6 +440,5 @@
             <p>&copy; 2024 VIPS Personal Protection LLC. All rights reserved. Discreet. Professional. Trusted.</p>
         </div>
     </footer>
-
 </body>
 </html>
