@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frequently Asked Questions about executive protection services, travel security, advance operations, and protective intelligence from VIPS Personal Protection LLC.">
+    <title>FAQ | VIPS Personal Protection LLC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #0a0e27;
+            --secondary-dark: #151829;
+            --accent-gold: #d4a574;
+            --accent-gold-light: #e8c89c;
+            --accent-red: #c41e3a;
+            --text-light: #e8e8e8;
+            --text-muted: #b0b0b0;
+            --border-subtle: #2a2e4a;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(10, 14, 39, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-subtle);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 0 30px rgba(212, 165, 116, 0.1);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light), var(--accent-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 8px rgba(212, 165, 116, 0.6));
+        }
+
+        .logo span {
+            color: var(--accent-red);
+            filter: drop-shadow(0 0 5px rgba(196, 30, 58, 0.4));
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* PAGE HEADER */
+        .page-header {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 2px solid;
+            border-image: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent) 1;
+            background: rgba(20, 24, 41, 0.5);
+            position: relative;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-gold), var(--text-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* MAIN CONTENT */
+        .content-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        /* CATEGORY TABS */
+        .category-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab-button {
+            padding: 0.8rem 1.8rem;
+            background: rgba(21, 24, 41, 0.6);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-light);
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .tab-button:hover {
+            border-color: var(--accent-gold);
+            background: rgba(21, 24, 41, 0.9);
+            color: var(--accent-gold);
+            box-shadow: 0 0 15px rgba(212, 165, 116, 0.2);
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
+            border-color: var(--accent-red);
+            color: white;
+            box-shadow: 0 0 20px rgba(196, 30, 58, 0.3);
+        }
+
+        /* FAQ SECTION */
+        .faq-section {
+            margin-bottom: 3rem;
+        }
+
+        .faq-section h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--accent-gold);
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(212, 165, 116, 0.2);
+        }
+
+        /* FAQ ITEM */
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-subtle);
+            border-radius: 2px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.15);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: rgba(21, 24, 41, 0.6);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover .faq-question {
+            background: rgba(21, 24, 41, 0.9);
+        }
+
+        .faq-question-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-light);
+            flex: 1;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            transition: transform 0.3s ease;
+            margin-left: 1rem;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: rgba(10, 14, 39, 0.5);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1.5rem;
+            max-height: 1000px;
+        }
+
+        .faq-answer-text {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .faq-answer-text p {
+            margin-bottom: 1rem;
+        }
+
+        .faq-answer-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            background: rgba(20, 24, 41, 0.8);
+            border-top: 2px solid;
+            border-image: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent) 1;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            border-radius: 2px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 2px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(196, 30, 58, 0.3);
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(212, 165, 116, 0.4);
+        }
+
+        /* FOOTER */
+        footer {
+            background: rgba(10, 14, 39, 0.95);
+            border-top: 2px solid;
+            border-image: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent) 1;
+            padding: 4rem 2rem 2rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .category-tabs {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .tab-button {
+                width: 100%;
+            }
+
+            .faq-question {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .faq-toggle {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">VIPS <span>PROTECTION</span></div>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/services">Services</a>
+                <a href="/about">About</a>
+                <button style="background: linear-gradient(135deg, var(--accent-red), #e53d4f); color: white; padding: 0.75rem 1.5rem; border-radius: 2px; font-weight: 600; cursor: pointer; border: none; transition: all 0.3s ease; box-shadow: 0 0 15px rgba(196, 30, 58, 0.3);">Request Consultation</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <h1>Frequently Asked Questions</h1>
+        <p>Find answers to common questions about executive protection, travel security, advance operations, and protective intelligence services.</p>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <div class="content-wrapper">
+        <div class="category-tabs">
+            <button class="tab-button active" onclick="filterFAQ('all')">All Questions</button>
+            <button class="tab-button" onclick="filterFAQ('travel')">Travel Security</button>
+            <button class="tab-button" onclick="filterFAQ('executive')">Executive Protection</button>
+            <button class="tab-button" onclick="filterFAQ('operations')">Operations & Planning</button>
+            <button class="tab-button" onclick="filterFAQ('pricing')">Pricing & Engagement</button>
+        </div>
+
+        <!-- TRAVEL SECURITY FAQs -->
+        <div class="faq-section" data-category="travel">
+            <h2>🛫 Travel Security & Advance Operations</h2>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    <span class="faq-question-text">Do you provide international travel protection?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text">
+                        <p>Yes. VIPS specializes in domestic and international travel security for clients requiring protection across city, state, and international boundaries. We coordinate with law enforcement and security partners globally to ensure seamless, secure movement regardless of destination.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    <span class="faq-question-text">What is advance work and how does it benefit me?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text">
+                        <p>Advance work is meticulous pre-engagement planning that occurs before you arrive at any location. Our team conducts site surveys, venue assessments, route planning, and threat analysis to identify vulnerabilities before they become risks.</p>
+                        <p><strong>Benefits include:</strong> Elimination of surprises, optimized routes, secured accommodations, identified contingencies, and rapid threat response capabilities should issues arise.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    <span class="faq-question-text">How long do you typically need for advance site assessments?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text">
+                        <p>Advance timelines vary based on engagement complexity, destination, and threat level. For domestic travel, 1-2 weeks advance work is typical. International operations may require 2-4 weeks depending on geopolitical factors and operational complexity. We'll customize timelines to your schedule.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    <span class="faq-question-text">Can you coordinate protection during multiple-country trips?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text">
+                        <p>Absolutely. Multi-country protection is one of our specialties. We coordinate advance teams, local liaison networks, transportation logistics, and seamless handoffs as you move between jurisdictions. Each destination receives dedicated planning and on-ground advance assessment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXECUTIVE PROTECTION FAQs -->
+        <div class="faq-section" data-category="executive">
+            <h2>👔 Executive Protection</h2>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    <span class="faq-question-text">Can protection services be discreet and professional?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text">
+                        <p>Yes. Our agents are trained to operate seamlessly in corporate and professional environments. Low-profile protection maintains your professional image while ensuring unwavering security. We understand that effective protection doesn't draw attention or disrupt business operations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    <span class="faq-question-text">How do you protect executives during public appearances?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text">
+                        <p>Public appearances require specific planning. We conduct advance venue assessments, identify escape routes, position protective personnel strategically, manage crowd flow, and coordinate with venue security. Our approach balances accessibility with security, ensuring you can engage with audiences while remaining protected.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    <span class="faq-question-text">Do you provide family protection as well?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text">
+                        <p>Yes. If your family members face related security risks, we provide extended protection services tailored to their specific needs—whether school transportation, daily routines, social activities, or travel. Family protection planning is integrated with executive protection strategy for seamless coverage.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    <span class="faq-question-text">What happens during emergencies or security incidents?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text">
+                        <p>We develop customized emergency protocols prior to engagement. In the event of security incidents, our trained team executes rapid response procedures, evacuates you to secure locations, coordinates with law enforcement, and provides ongoing support. 24/7 response capability ensures immediate escalation and action.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OPERATIONS & PLANNING FAQs -->
+        <div class="faq-section" data-category="operations">
+            <h2>🎯 Operations & Planning</h2>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    <span class="faq-question-text">How do you assess my specific security risks?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text">
+                        <p>We conduct comprehensive threat assessments evaluating your profile, activities, operating environment, and geopolitical factors. Based on this analysis, we identify vulnerabilities and develop customized protection strategies aligned to your unique risk level and requirements.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    <span class="faq-question-text">How do you maintain confidentiality in all operations?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text">
+                        <p>Confidentiality is fundamental to everything we do. Our team operates under strict non-disclosure agreements, uses secure communications, maintains operational secrecy, and never references clients or operations publicly. Your privacy and protection are absolute priorities.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    <span class="faq-question-text">Can protection strategies be adjusted as situations change?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text">
+                        <p>Absolutely. We monitor evolving threats and adjust protection strategies accordingly. If your circumstances, schedule, or threat environment change, we adapt our approach to ensure continued effectiveness. Flexibility and responsiveness are core to our operational model.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    <span class="faq-question-text">Do you coordinate with law enforcement?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text">
+                        <p>Yes. We maintain liaison relationships with law enforcement agencies across jurisdictions. When appropriate, we coordinate with local police, federal agencies, and international partners to enhance threat awareness, facilitate communication, and ensure rapid response if incidents occur.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRICING & ENGAGEMENT FAQs -->
+        <div class="faq-section" data-category="pricing">
+            <h2>💼 Pricing & Engagement</h2>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    <span class="faq-question-text">How is pricing structured for executive protection services?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text">
+                        <p>Pricing is customized based on service type, duration, complexity, number of personnel required, and operational scope. We provide transparent proposals detailing all costs. Pricing models include hourly rates, daily engagement fees, retainer arrangements, or project-based pricing depending on your needs.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    <span class="faq-question-text">Are there minimum engagement periods?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text">
+                        <p>Engagement terms are flexible. We accommodate short-term assignments, one-time events, extended retainers, and ongoing protective relationships. Minimum periods are determined based on service type—some services require full-day minimums while others are event-specific.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    <span class="faq-question-text">Can I start with a one-time consultation or assessment?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text">
+                        <p>Yes. Many clients begin with consultations or threat assessments to understand their security requirements and available options. No long-term commitment is necessary to explore protection options. We'll work with you to develop a strategy aligned to your timeline and budget.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFAQ(this)">
+                <div class="faq-question">
+                    <span class="faq-question-text">How do I get started with VIPS?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-text">
+                        <p>Contact us for a confidential consultation. Call 512-914-6433, email info@vipsprotection.com, or submit a consultation request through our website. During your initial conversation, we'll discuss your situation, security concerns, and available service options. From there, we'll develop a customized proposal.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA SECTION -->
+        <div class="cta-section">
+            <h2>Didn't Find Your Answer?</h2>
+            <p>Contact our team directly for additional questions or information about our services.</p>
+            <button class="cta-button">Request a Consultation</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>VIPS Protection</h4>
+                <p>Discreet executive protection and travel security for high-profile individuals, corporate leaders, and families.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <a href="#">Travel Security</a>
+                <a href="#">Executive Protection</a>
+                <a href="#">Personal Protection</a>
+                <a href="#">Protective Intelligence</a>
+                <a href="#">Corporate Consulting</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Phone: 512-914-6433</p>
+                <p>Email: info@vipsprotection.com</p>
+                <p>Address: 807 Brazos Street, Suite 702, Austin, TX 78701</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 VIPS Personal Protection LLC. All rights reserved. Discreet. Professional. Trusted.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFAQ(element) {
+            element.classList.toggle('active');
+        }
+
+        function filterFAQ(category) {
+            // Update active button
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Show/hide sections
+            document.querySelectorAll('.faq-section').forEach(section => {
+                if (category === 'all' || section.getAttribute('data-category') === category) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
