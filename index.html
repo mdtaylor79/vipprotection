@@ -25,71 +25,11 @@
 
         /* Gold gradient shine effect */
         @keyframes shimmer {
-            0% {
-                background-position: -1000px 0;
-            }
-            100% {
-                background-position: 1000px 0;
-            }
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
         }
 
-        .gold-shine {
-            background: linear-gradient(90deg, transparent, var(--accent-gold-light), var(--accent-gold), var(--accent-gold-light), transparent);
-            background-size: 1000px 100%;
-            animation: shimmer 3s infinite;
-        }
-
-        .gold-trim {
-            position: relative;
-        }
-
-        .gold-trim::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
-            box-shadow: 0 0 15px rgba(212, 165, 116, 0.6);
-        }
-
-        .gold-trim::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
-            box-shadow: 0 0 15px rgba(212, 165, 116, 0.6);
-        }
-
-        .gold-trim-vertical::before {
-            top: 0;
-            bottom: 0;
-            left: 0;
-            width: 3px;
-            height: auto;
-        }
-
-        .gold-trim-vertical::after {
-            top: 0;
-            bottom: 0;
-            right: 0;
-            width: 3px;
-            height: auto;
-        }
-
-        .gold-border-accent {
-            border: 1px solid;
-            border-image: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light), var(--accent-gold)) 1;
-            box-shadow: inset 0 0 20px rgba(212, 165, 116, 0.1), 0 0 20px rgba(212, 165, 116, 0.15);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -141,19 +81,44 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 2rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .logo-section:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            filter: drop-shadow(0 0 10px rgba(212, 165, 116, 0.4));
+            transition: all 0.3s ease;
+        }
+
+        .logo-section:hover .logo-img {
+            filter: drop-shadow(0 0 15px rgba(212, 165, 116, 0.6));
         }
 
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
             letter-spacing: 0.15em;
-            color: var(--accent-gold);
-            position: relative;
             background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light), var(--accent-gold));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             filter: drop-shadow(0 0 8px rgba(212, 165, 116, 0.6));
+            text-decoration: none;
+            cursor: pointer;
         }
 
         .logo span {
@@ -165,9 +130,10 @@
             display: flex;
             gap: 2.5rem;
             align-items: center;
+            flex-wrap: wrap;
         }
 
-        nav a {
+        nav > a {
             color: var(--text-light);
             text-decoration: none;
             font-size: 0.95rem;
@@ -176,7 +142,7 @@
             position: relative;
         }
 
-        nav a::after {
+        nav > a::after {
             content: '';
             position: absolute;
             bottom: -5px;
@@ -188,12 +154,90 @@
             box-shadow: 0 0 10px rgba(212, 165, 116, 0.5);
         }
 
-        nav a:hover {
+        nav > a:hover::after {
+            width: 100%;
+        }
+
+        nav > a:hover {
             color: var(--accent-gold);
         }
 
-        nav a:hover::after {
-            width: 100%;
+        /* Submenu styling */
+        .nav-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-item > a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item > a:hover {
+            color: var(--accent-gold);
+        }
+
+        .submenu-toggle {
+            color: var(--accent-gold);
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item:hover .submenu-toggle {
+            transform: rotate(180deg);
+        }
+
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(10, 14, 39, 0.98);
+            border: 1px solid var(--border-subtle);
+            border-top: 2px solid var(--accent-gold);
+            border-radius: 2px;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            margin-top: 1rem;
+        }
+
+        .nav-item:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .submenu a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .submenu a:hover {
+            background: rgba(212, 165, 116, 0.1);
+            color: var(--accent-gold);
+            border-left-color: var(--accent-gold);
+            padding-left: 1.8rem;
+        }
+
+        .submenu a:first-child {
+            border-radius: 2px 2px 0 0;
+        }
+
+        .submenu a:last-child {
+            border-radius: 0 0 2px 2px;
         }
 
         .cta-button {
@@ -206,6 +250,7 @@
             border: none;
             transition: all 0.3s ease;
             box-shadow: 0 0 15px rgba(196, 30, 58, 0.3);
+            white-space: nowrap;
         }
 
         .cta-button:hover {
@@ -226,17 +271,6 @@
             padding: 2rem;
             border-bottom: 2px solid;
             border-image: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent) 1;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
-            box-shadow: 0 0 25px rgba(212, 165, 116, 0.8), inset 0 0 20px rgba(212, 165, 116, 0.3);
         }
 
         .hero::before {
@@ -554,12 +588,8 @@
         }
 
         @keyframes shine {
-            0% {
-                transform: translateX(-100%) translateY(-100%);
-            }
-            100% {
-                transform: translateX(100%) translateY(100%);
-            }
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100%) translateY(100%); }
         }
 
         .service-card:hover .service-icon {
@@ -963,6 +993,19 @@
                 gap: 1rem;
             }
 
+            .logo-section {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .logo-img {
+                height: 50px;
+            }
+
             nav {
                 flex-direction: column;
                 gap: 1rem;
@@ -970,6 +1013,26 @@
                 text-align: center;
                 border-top: 1px solid var(--border-subtle);
                 padding-top: 1rem;
+            }
+
+            .nav-item {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .submenu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                border: none;
+                background: rgba(10, 14, 39, 0.7);
+                margin: 0;
+                display: none;
+            }
+
+            .nav-item:hover .submenu {
+                display: block;
             }
 
             .hero h1 {
@@ -1008,12 +1071,44 @@
     <!-- HEADER -->
     <header>
         <div class="header-container">
-            <div class="logo">VIPS <span>PROTECTION</span></div>
+            <a href="/" class="logo-section">
+                <img src="logo.png" alt="VIPS Protection Logo" class="logo-img">
+                <span class="logo">VIPS <span>PROTECTION</span></span>
+            </a>
             <nav>
-                <a href="#services">Services</a>
-                <a href="#capabilities">Capabilities</a>
-                <a href="#process">Process</a>
-                <a href="#contact">About</a>
+                <!-- SERVICES WITH SUBMENU -->
+                <div class="nav-item">
+                    <a href="vip_services.html">Services</a>
+                    <span class="submenu-toggle">▼</span>
+                    <div class="submenu">
+                        <a href="vip_services.html">All Services</a>
+                        <a href="vip_services.html#surveillance">Surveillance Equipment</a>
+                    </div>
+                </div>
+
+                <!-- ABOUT -->
+                <a href="vip_about.html">About</a>
+
+                <!-- CONTACT WITH SUBMENU -->
+                <div class="nav-item">
+                    <a href="vip_contact.html">Contact</a>
+                    <span class="submenu-toggle">▼</span>
+                    <div class="submenu">
+                        <a href="vip_contact.html">Contact VIPS</a>
+                        <a href="vip_contact.html#bookings">Bookings</a>
+                    </div>
+                </div>
+
+                <!-- EMPLOYMENT WITH SUBMENU -->
+                <div class="nav-item">
+                    <a href="#employment">Employment</a>
+                    <span class="submenu-toggle">▼</span>
+                    <div class="submenu">
+                        <a href="#employment-forms">Employment Forms</a>
+                        <a href="#applications">Applications</a>
+                    </div>
+                </div>
+
                 <button class="cta-button">Request Consultation</button>
             </nav>
         </div>
@@ -1064,37 +1159,37 @@
                 <div class="service-icon">🛫</div>
                 <h3>Travel Security & Advance Operations</h3>
                 <p>Full-spectrum travel protection with advance site surveys, route planning, venue assessments, and discreet logistics coordination for domestic and international movement.</p>
-                <a href="#contact">Learn More →</a>
+                <a href="vip_services.html">Learn More →</a>
             </div>
             <div class="service-card">
                 <div class="service-icon">👔</div>
                 <h3>Executive Protection</h3>
                 <p>Close protection services for corporate leaders during business activities, public appearances, and daily operations, supported by intelligence and risk mitigation strategies.</p>
-                <a href="#contact">Learn More →</a>
+                <a href="vip_services.html">Learn More →</a>
             </div>
             <div class="service-card">
                 <div class="service-icon">🔐</div>
                 <h3>Personal Protection</h3>
                 <p>Low-profile protection for high-profile individuals, families, and public figures in corporate environments, private residences, and dynamic social settings.</p>
-                <a href="#contact">Learn More →</a>
+                <a href="vip_services.html">Learn More →</a>
             </div>
             <div class="service-card">
                 <div class="service-icon">🏢</div>
                 <h3>Protective Intelligence & Risk Mitigation</h3>
                 <p>Proactive threat assessments, vulnerability analysis, geopolitical monitoring, and customized security planning to anticipate and manage emerging risks.</p>
-                <a href="#contact">Learn More →</a>
+                <a href="vip_services.html">Learn More →</a>
             </div>
             <div class="service-card">
                 <div class="service-icon">🔍</div>
                 <h3>Private Investigations</h3>
                 <p>Trusted investigative services for fraud investigation, witness identification, background verification, and intelligence gathering for risk assessment.</p>
-                <a href="#contact">Learn More →</a>
+                <a href="vip_services.html">Learn More →</a>
             </div>
             <div class="service-card">
                 <div class="service-icon">💼</div>
                 <h3>Corporate Security Consulting</h3>
                 <p>Strategic security assessments, threat analysis, and customized protection planning for corporate environments, facilities, and operations.</p>
-                <a href="#contact">Learn More →</a>
+                <a href="vip_services.html">Learn More →</a>
             </div>
         </div>
     </section>
@@ -1224,23 +1319,24 @@
             </div>
             <div class="footer-section">
                 <h4>Services</h4>
-                <a href="#">Travel Security</a>
-                <a href="#">Executive Protection</a>
-                <a href="#">Personal Protection</a>
-                <a href="#">Protective Intelligence</a>
-                <a href="#">Corporate Consulting</a>
+                <a href="vip_services.html">All Services</a>
+                <a href="vip_services.html">Travel Security</a>
+                <a href="vip_services.html">Executive Protection</a>
+                <a href="vip_services.html">Personal Protection</a>
+                <a href="vip_services.html">Corporate Consulting</a>
             </div>
             <div class="footer-section">
-                <h4>Contact</h4>
+                <h4>Company</h4>
+                <a href="vip_about.html">About Us</a>
+                <a href="vip_faq.html">FAQ</a>
+                <a href="vip_contact.html">Contact</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
                 <p>Phone: 512-914-6433</p>
                 <p>Email: info@vipsprotection.com</p>
                 <p>Address: 807 Brazos Street, Suite 702, Austin, TX 78701</p>
-            </div>
-            <div class="footer-section">
-                <h4>Credentials</h4>
-                <p>✓ Veteran-Owned & Operated</p>
-                <p>✓ Texas PSB License #C24076301</p>
-                <p>✓ Law Enforcement Background</p>
             </div>
         </div>
         <div class="footer-bottom">
