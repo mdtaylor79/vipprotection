@@ -16,7 +16,834 @@
             --primary-dark: #0a0e27;
             --secondary-dark: #151829;
             --accent-gold: #d4a574;
+            --accent-gold-light: #e8c89c;<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Executive protection and travel security for high-profile individuals, corporate leaders, and families. Discreet, intelligence-driven protection services locally, nationally, and internationally.">
+    <title>VIPS Personal Protection LLC | Executive Protection & Travel Security</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #0a0e27;
+            --secondary-dark: #151829;
+            --accent-gold: #d4a574;
             --accent-gold-light: #e8c89c;
+            --accent-red: #c41e3a;
+            --text-light: #e8e8e8;
+            --text-muted: #b0b0b0;
+            --border-subtle: #2a2e4a;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(10, 14, 39, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-subtle);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 0 30px rgba(212, 165, 116, 0.1);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 10px rgba(212, 165, 116, 0.5);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .logo-section:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light), var(--accent-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 8px rgba(212, 165, 116, 0.6));
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .logo span {
+            color: var(--accent-red);
+            filter: drop-shadow(0 0 5px rgba(196, 30, 58, 0.4));
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav > a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav > a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-gold-light));
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px rgba(212, 165, 116, 0.5);
+        }
+
+        nav > a:hover::after {
+            width: 100%;
+        }
+
+        nav > a:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-item > a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item > a:hover {
+            color: var(--accent-gold);
+        }
+
+        .submenu-toggle {
+            color: var(--accent-gold);
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item:hover .submenu-toggle {
+            transform: rotate(180deg);
+        }
+
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(10, 14, 39, 0.98);
+            border: 1px solid var(--border-subtle);
+            border-top: 2px solid var(--accent-gold);
+            border-radius: 2px;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            margin-top: 1rem;
+        }
+
+        .nav-item:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .submenu a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .submenu a:hover {
+            background: rgba(212, 165, 116, 0.1);
+            color: var(--accent-gold);
+            border-left-color: var(--accent-gold);
+            padding-left: 1.8rem;
+        }
+
+        .submenu a:first-child {
+            border-radius: 2px 2px 0 0;
+        }
+
+        .submenu a:last-child {
+            border-radius: 0 0 2px 2px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(196, 30, 58, 0.3);
+            white-space: nowrap;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
+        }
+
+        /* HAMBURGER MENU STYLES */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: transparent;
+            border: 2px solid var(--accent-gold);
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 0.6rem 0.8rem;
+            width: 45px;
+            height: 45px;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 1002;
+        }
+
+        .hamburger:hover {
+            background: rgba(212, 165, 116, 0.1);
+            box-shadow: 0 0 10px rgba(212, 165, 116, 0.5);
+        }
+
+        .hamburger span {
+            width: 22px;
+            height: 2.5px;
+            background: var(--accent-gold);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+            background: var(--accent-red);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+            background: var(--accent-red);
+        }
+
+        /* MOBILE MENU STYLES */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(10, 14, 39, 0.98);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 1rem;
+            z-index: 999;
+            max-height: 80vh;
+            overflow-y: auto;
+            margin-top: 0;
+        }
+
+        .mobile-menu.active {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .mobile-menu a, .mobile-menu-section > span {
+            display: block;
+            padding: 1rem;
+            color: var(--text-light);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border-subtle);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            background: rgba(212, 165, 116, 0.1);
+            color: var(--accent-gold);
+            padding-left: 1.5rem;
+        }
+
+        .mobile-menu-section {
+            border-bottom: 2px solid var(--border-subtle);
+        }
+
+        .mobile-menu-section > span {
+            color: var(--accent-gold);
+            font-weight: 600;
+            cursor: pointer;
+            padding: 1rem;
+            display: block;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .mobile-menu-section > span:hover {
+            background: rgba(212, 165, 116, 0.1);
+        }
+
+        .mobile-submenu {
+            display: none;
+            background: rgba(21, 24, 41, 0.8);
+        }
+
+        .mobile-submenu.active {
+            display: block;
+        }
+
+        .mobile-submenu a {
+            padding: 0.8rem 1.5rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .mobile-cta {
+            padding: 1rem;
+            margin: 1rem;
+            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
+            color: white;
+            text-align: center;
+            border-radius: 2px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            width: calc(100% - 2rem);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-cta:hover {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            color: var(--primary-dark);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+            border-bottom: 2px solid;
+            border-image: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent) 1;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(196, 30, 58, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(212, 165, 116, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 .highlight {
+            color: var(--accent-gold);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.05em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
+            color: white;
+            box-shadow: 0 0 20px rgba(196, 30, 58, 0.3);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 165, 116, 0.4);
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-gold);
+            border: 2px solid var(--accent-gold);
+            box-shadow: inset 0 0 20px rgba(212, 165, 116, 0.05);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 165, 116, 0.4);
+        }
+
+        .credentials {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+
+        .credential-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(212, 165, 116, 0.05);
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .credential-item:hover {
+            background: rgba(212, 165, 116, 0.1);
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 15px rgba(212, 165, 116, 0.3);
+        }
+
+        .credential-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: var(--primary-dark);
+            font-weight: 700;
+            box-shadow: 0 0 15px rgba(212, 165, 116, 0.6);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100%) translateY(100%); }
+        }
+
+        footer {
+            background: rgba(10, 14, 39, 0.95);
+            border-top: 1px solid var(--border-subtle);
+            padding: 4rem 2rem 2rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
+            box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        .footer-section a, .footer-section p {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* RESPONSIVE STYLES */
+        @media (max-width: 768px) {
+            .header-container {
+                gap: 1rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .cta-button {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: clamp(1.8rem, 6vw, 3rem);
+            }
+
+            .credentials {
+                gap: 1rem;
+                flex-direction: column;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo-section">
+                <span class="logo.png">VIPS<span>.</span></span>
+            </a>
+            <nav id="desktopNav">
+                <div class="nav-item">
+                    <a href="vip_services.html">Services</a>
+                    <span class="submenu-toggle">▼</span>
+                    <div class="submenu">
+                        <a href="vip_services.html">All Services</a>
+                        <a href="vip_primary_services.html">Primary Services</a>
+                        <a href="vip_surveillance.html">Surveillance Equipment</a>
+                    </div>
+                </div>
+                <a href="vip_about.html">About</a>
+                <div class="nav-item">
+                    <a href="vip_contact.html">Contact</a>
+                    <span class="submenu-toggle">▼</span>
+                    <div class="submenu">
+                        <a href="vip_contact.html">Contact VIPS</a>
+                        <a href="vip_bookings.html">Bookings</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="vip_employment.html">Employment</a>
+                    <span class="submenu-toggle">▼</span>
+                    <div class="submenu">
+                        <a href="vip_employment_forms.html">Employment Forms</a>
+                        <a href="vip_application.html">Application</a>
+                    </div>
+                </div>
+                <a href="vip_faq.html">FAQ</a>
+                <button class="cta-button" onclick="location.href='vip_bookings.html'">Request Consultation</button>
+            </nav>
+            
+            <!-- HAMBURGER BUTTON -->
+            <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- MOBILE MENU -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-section">
+                <span onclick="toggleMobileSubmenu(this)">Services ▼</span>
+                <div class="mobile-submenu">
+                    <a href="vip_services.html" onclick="closeMobileMenu()">All Services</a>
+                    <a href="vip_primary_services.html" onclick="closeMobileMenu()">Primary Services</a>
+                    <a href="vip_surveillance.html" onclick="closeMobileMenu()">Surveillance Equipment</a>
+                </div>
+            </div>
+            <a href="vip_about.html" onclick="closeMobileMenu()">About</a>
+            <div class="mobile-menu-section">
+                <span onclick="toggleMobileSubmenu(this)">Contact ▼</span>
+                <div class="mobile-submenu">
+                    <a href="vip_contact.html" onclick="closeMobileMenu()">Contact VIPS</a>
+                    <a href="vip_bookings.html" onclick="closeMobileMenu()">Bookings</a>
+                </div>
+            </div>
+            <div class="mobile-menu-section">
+                <span onclick="toggleMobileSubmenu(this)">Employment ▼</span>
+                <div class="mobile-submenu">
+                    <a href="vip_employment_forms.html" onclick="closeMobileMenu()">Employment Forms</a>
+                    <a href="vip_application.html" onclick="closeMobileMenu()">Application</a>
+                </div>
+            </div>
+            <a href="vip_faq.html" onclick="closeMobileMenu()">FAQ</a>
+            <button class="mobile-cta" onclick="location.href='vip_bookings.html'; closeMobileMenu();">Request Consultation</button>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discreet Executive Protection & <span class="highlight">Global Travel Security</span></h1>
+            <p class="subtitle">Intelligence-driven protection for high-profile individuals, corporate leaders, and families requiring a higher standard of security. locally, nationally, and international operations.</p>
+            <div class="hero-cta">
+                <button class="btn-primary" onclick="location.href='vip_bookings.html'">Request Consultation</button>
+                <button class="btn-secondary" onclick="document.querySelector('.positioning').scrollIntoView({behavior: 'smooth'})">Learn More</button>
+            </div>
+            <div class="credentials">
+                <div class="credential-item">
+                    <div class="credential-icon">✓</div>
+                    <span>Veteran-Owned & Operated</span>
+                </div>
+                <div class="credential-item">
+                    <div class="credential-icon">✓</div>
+                    <span>Texas PSB License #C24076301</span>
+                </div>
+                <div class="credential-item">
+                    <div class="credential-icon">✓</div>
+                    <span>Law Enforcement Background</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>VIPS Protection</h4>
+                <p>Discreet executive protection and travel security for high-profile individuals, corporate leaders, and families.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>Phone: 512-914-6433</p>
+                <p>Email: info@vipsprotection.com</p>
+                <p>Address: 807 Brazos Street, Suite 702, Austin, TX 78701</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 VIPS Personal Protection LLC. All rights reserved. Discreet. Professional. Trusted.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const hamburger = document.getElementById("hamburgerBtn");
+            const mobileMenu = document.getElementById("mobileMenu");
+            if (hamburger && mobileMenu) {
+                hamburger.classList.toggle("active");
+                mobileMenu.classList.toggle("active");
+            }
+        }
+        
+        function closeMobileMenu() {
+            const hamburger = document.getElementById("hamburgerBtn");
+            const mobileMenu = document.getElementById("mobileMenu");
+            if (hamburger && mobileMenu) {
+                hamburger.classList.remove("active");
+                mobileMenu.classList.remove("active");
+            }
+        }
+        
+        function toggleMobileSubmenu(element) {
+            const submenu = element.nextElementSibling;
+            if (submenu) {
+                submenu.classList.toggle("active");
+                element.textContent = submenu.classList.contains("active") 
+                    ? element.textContent.replace("▼", "▲") 
+                    : element.textContent.replace("▲", "▼");
+            }
+        }
+        
+        document.addEventListener("click", function(event) {
+            const header = document.querySelector("header");
+            const hamburger = document.getElementById("hamburgerBtn");
+            if (header && !header.contains(event.target) && !hamburger.contains(event.target)) {
+                closeMobileMenu();
+            }
+        });
+    </script>
+</body>
+</html>
             --accent-red: #c41e3a;
             --text-light: #e8e8e8;
             --text-muted: #b0b0b0;
