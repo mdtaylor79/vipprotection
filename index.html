@@ -92,8 +92,15 @@
             transform: translateY(-2px);
         }
 
+        .logo-img {
+            height: 40px;
+            width: auto;
+            filter: drop-shadow(0 0 10px rgba(212, 165, 116, 0.4));
+            transition: all 0.3s ease;
+        }
+
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             font-weight: 700;
             letter-spacing: 0.15em;
             background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light), var(--accent-gold));
@@ -809,12 +816,11 @@
 
     <!-- HEADER -->
     <header>
-         <div class="header-container">
+        <div class="header-container">
             <a href="index.html" class="logo-section">
-                <img src="logo.png" alt="VIPS Protection Logo" class="logo-img">
-                <span class="logo">VIPS <span>PROTECTION</span></span>
+                <span class="logo">VIPS<span>.</span></span>
             </a>
-            <nav>
+            <nav id="desktopNav">
                 <div class="nav-item">
                     <a href="vip_services.html">Services</a>
                     <span class="submenu-toggle">▼</span>
@@ -841,9 +847,7 @@
                         <a href="vip_application.html">Application</a>
                     </div>
                 </div>
-                <div class="nav-item">
-                    <a href="vip_faq.html">FAQ</a>
-                </div>
+                <a href="vip_faq.html">FAQ</a>
                 <button class="cta-button" onclick="location.href='vip_bookings.html'">Request Consultation</button>
             </nav>
             
