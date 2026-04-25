@@ -72,10 +72,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             letter-spacing: 0.15em;
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light), var(--accent-gold));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--accent-gold);
             filter: drop-shadow(0 0 8px rgba(212, 165, 116, 0.6));
         }
         .logo span { color: var(--accent-red); }
@@ -166,6 +163,95 @@
             color: var(--primary-dark);
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-light);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(10, 14, 39, 0.98);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 1rem;
+            z-index: 999;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .mobile-menu.active {
+            display: block;
+        }
+        .mobile-menu a, .mobile-menu-section > span {
+            display: block;
+            padding: 1rem;
+            color: var(--text-light);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border-subtle);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu a:hover {
+            background: rgba(212, 165, 116, 0.1);
+            color: var(--accent-gold);
+            padding-left: 1.5rem;
+        }
+        .mobile-menu-section {
+            border-bottom: 2px solid var(--border-subtle);
+        }
+        .mobile-menu-section > span {
+            color: var(--accent-gold);
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .mobile-submenu {
+            display: none;
+            background: rgba(21, 24, 41, 0.8);
+        }
+        .mobile-submenu.active {
+            display: block;
+        }
+        .mobile-submenu a {
+            padding: 0.8rem 1.5rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .mobile-cta {
+            padding: 1rem;
+            margin: 1rem;
+            background: linear-gradient(135deg, var(--accent-red), #e53d4f);
+            color: white;
+            text-align: center;
+            border-radius: 2px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+        }
+        .mobile-cta:hover {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            color: var(--primary-dark);
         }
         .page-header {
             min-height: 50vh;
@@ -404,22 +490,45 @@
             to { opacity: 1; transform: translateY(0); }
         }
         @media (max-width: 768px) {
-            .header-container { flex-direction: column; gap: 1rem; }
-            .logo-section { justify-content: center; width: 100%; }
-            nav { flex-direction: column; gap: 1rem; width: 100%; text-align: center; border-top: 1px solid var(--border-subtle); padding-top: 1rem; }
+            .header-container { 
+                flex-direction: row;
+                gap: 1rem;
+                justify-content: space-between;
+            }
+            .logo-section { 
+                justify-content: flex-start;
+                width: auto;
+                flex: 1;
+            }
+            .logo-img {
+                height: 50px;
+            }
+            .logo {
+                font-size: 1.1rem;
+                letter-spacing: 0.1em;
+            }
+            nav { 
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .cta-button {
+                display: none;
+            }
             .page-header h1 { font-size: 1.8rem; }
             .employment-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-   <header>
+    <header>
         <div class="header-container">
             <a href="index.html" class="logo-section">
                 <img src="logo.png" alt="VIPS Protection Logo" class="logo-img">
                 <span class="logo">VIPS <span>PROTECTION</span></span>
             </a>
-            <nav>
+            <nav id="desktopNav">
                 <div class="nav-item">
                     <a href="vip_services.html">Services</a>
                     <span class="submenu-toggle">▼</span>
@@ -443,7 +552,7 @@
                     <span class="submenu-toggle">▼</span>
                     <div class="submenu">
                         <a href="vip_employment_forms.html">Employment Forms</a>
-                        <a href="#applications">Applications</a>
+                        <a href="vip_application.html">Application</a>
                     </div>
                 </div>
                 <div class="nav-item">
@@ -451,6 +560,33 @@
                 </div>
                 <button class="cta-button" onclick="location.href='vip_bookings.html'">Request Consultation</button>
             </nav>
+            <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="vip_services.html" onclick="closeMobileMenu()">All Services</a>
+            <a href="vip_primary_services.html" onclick="closeMobileMenu()">Primary Services</a>
+            <a href="vip_surveillance.html" onclick="closeMobileMenu()">Surveillance Equipment</a>
+            
+            <a href="vip_about.html" onclick="closeMobileMenu()">About Us</a>
+            
+            <a href="vip_contact.html" onclick="closeMobileMenu()">Contact VIPS</a>
+            <a href="vip_bookings.html" onclick="closeMobileMenu()">Bookings</a>
+            
+            <div class="mobile-menu-section">
+                <span onclick="toggleMobileSubmenu(this)">Employment ▼</span>
+                <div class="mobile-submenu">
+                    <a href="vip_employment_forms.html" onclick="closeMobileMenu()">Employment Forms</a>
+                    <a href="vip_application.html" onclick="closeMobileMenu()">Application</a>
+                </div>
+            </div>
+            
+            <a href="vip_faq.html" onclick="closeMobileMenu()">FAQ</a>
+            
+            <button class="mobile-cta" onclick="location.href='vip_bookings.html'; closeMobileMenu();">Request Consultation</button>
         </div>
     </header>
 
@@ -584,5 +720,36 @@
             <p>&copy; 2024 VIPS Personal Protection LLC. All rights reserved. Discreet. Professional. Trusted.</p>
         </div>
     </footer>
+    <script>
+        function toggleMobileMenu() {
+            const hamburger = document.getElementById('hamburgerBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        }
+        
+        function closeMobileMenu() {
+            const hamburger = document.getElementById('hamburgerBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        }
+        
+        function toggleMobileSubmenu(element) {
+            const submenu = element.nextElementSibling;
+            submenu.classList.toggle('active');
+            element.textContent = submenu.classList.contains('active') 
+                ? element.textContent.replace('▼', '▲') 
+                : element.textContent.replace('▲', '▼');
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const header = document.querySelector('header');
+            if (!header.contains(event.target)) {
+                closeMobileMenu();
+            }
+        });
+    </script>
 </body>
 </html>
